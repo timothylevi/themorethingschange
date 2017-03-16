@@ -1,0 +1,35 @@
+.search-page {
+  .search-page-title { font-size: 2rem; }
+  .search-page-typeahead {}
+  .search-page-tags {
+    margin: 1rem 0 0 0;
+    padding: 0;
+    list-style-type: none;
+
+    .search-page-tag {
+      display: inline-block;
+      padding: 0.25rem 0.5rem;
+      background-color: green;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
+      color: white;
+      border-radius: 2px;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+  .search-results-title {}
+  .search-results {
+    .search-result-group {}
+    .search-result-group-title {}
+    .search-result {
+      &.search-result-tag {}
+      &.search-result-photo {}
+      &.search-result-article {}
+      &.search-result-subtopic {}
+      &.search-result-video {}
+    }
+  }
+}
