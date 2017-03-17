@@ -1,58 +1,25 @@
-import { baseUrl } from './constants.js';
 import { _ } from 'underscore';
 import { ajax, getJSON } from 'jquery';
+import { baseUrl } from './constants.js';
+
+function getProp(key, versioned = true, def = '') {
+  return function(data) {
+    const obj = versioned ? data.versionedData : data.unversionedData;
+    return obj.hasOwnProperty(key) ? obj[key][0].value : def;
+  };
+}
 
 const getProps = {
-  backgroundImage: function(data) {
-    const key = 'http://scalar.usc.edu/2012/01/scalar-ns#background';
-    const obj = data.unversionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : '';
-  },
-  description: function(data) {
-    const key = 'http://purl.org/dc/terms/description';
-    const obj = data.versionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : '';
-  },
-  title: function(data) {
-    const key = 'http://purl.org/dc/terms/title';
-    const obj = data.versionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : '';
-  },
-  sort: function(data) {
-    const key = 'http://purl.org/dc/terms/spatial';
-    const obj = data.versionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : 0;
-  },
-  format: function(data) {
-    const key = 'http://purl.org/dc/terms/format';
-    const obj = data.versionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : '';
-  },
-  content: function(data) {
-    const key = 'http://rdfs.org/sioc/ns#content';
-    const obj = data.versionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : '';
-  },
-  thumbnail: function(data) {
-    const key = 'http://simile.mit.edu/2003/10/ontologies/artstor#thumbnail';
-    const obj = data.unversionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : '';
-  },
-  mediaUrl: function(data) {
-    const key = 'http://simile.mit.edu/2003/10/ontologies/artstor#url';
-    const obj = data.versionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : '';
-  },
-  medium: function(data) {
-    const key = 'http://purl.org/dc/terms/medium';
-    const obj = data.versionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : '';
-  },
-  type: function(data) {
-    const key = 'http://purl.org/dc/terms/type';
-    const obj = data.versionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : '';
-  }
+  backgroundImage: getProp('http://scalar.usc.edu/2012/01/scalar-ns#background', false),
+  description: getProp('http://purl.org/dc/terms/description'),
+  title: getProp('http://purl.org/dc/terms/title'),
+  sort: getProp('http://purl.org/dc/terms/spatial', true, 0),
+  format: getProp('http://purl.org/dc/terms/format'),
+  content: getProp('http://rdfs.org/sioc/ns#content'),
+  thumbnail: getProp('http://simile.mit.edu/2003/10/ontologies/artstor#thumbnail'),
+  mediaUrl: getProp('http://simile.mit.edu/2003/10/ontologies/artstor#url'),
+  medium: getProp('http://purl.org/dc/terms/medium'),
+  type: getProp('http://purl.org/dc/terms/type'),
 };
 
 function getServerRequest(slug, callback) {

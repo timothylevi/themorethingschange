@@ -1,51 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router';
-const Modal = require('react-modal');
-import HomePage from './Pages/HomePage.jsx';
-import TopicPage from './Pages/TopicPage.jsx';
-import SubtopicPage from './Pages/SubtopicPage.jsx';
-import SearchPage from './Pages/SearchPage.jsx';
-import { getServerRequest } from './request_helpers.js';
 import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 
-const AppRouter = React.createClass({
-  render: function() {
-    return (
-      <Router history={browserHistory}>
-        <Route path="/" component={App}>
-          <IndexRedirect to='/home' />
-          <Route path="/:slug" component={SlugSwitch} />
-        </Route>
-      </Router>
-    );
-  }
-});
+import { getServerRequest } from './helpers/requests.js';
+import { HomePage, TopicPage, SubtopicPage, SearchPage, StaticPage } from './page';
 
 const App = React.createClass({
-  getInitialState: function() {
-    return { open: false };
-  },
-
-  openModal: function() {
-    this.setState({ open: true });
-  },
-
-  closeModal: function() {
-    this.setState({ open: false });
-  },
-
   render: function() {
     return (
       <div className="app">
-        <div className="app-background" />
-        <div className="app-background-replace" />
         <header className="app-header">
           <div className="app-wordmarks">
-            <a className="app-logo" target="_blank" href="http://www.bard.edu/">
-              <img src="/img/Bard_College_Logo.png" />
+            <a className="app-logo-link" target="_blank" href="http://www.bard.edu/">
+              <img className="app-logo" src="/img/Bard_College_Logo.png" />
             </a>
             <h1 className="app-title">
-              <Link to="/home">The More Things Change</Link>
+              <Link className="app-title-link" to="/home">The More Things Change</Link>
             </h1>
           </div>
 
@@ -54,6 +24,7 @@ const App = React.createClass({
               <li className="app-nav-link-item"><Link className="app-nav-link" to="home#about">About</Link></li>
               <li className="app-nav-link-item"><Link className="app-nav-link" to="./files/themorethingschange.pdf">Report</Link></li>
               <li className="app-nav-link-item"><Link className="app-nav-link" to="home#topics">Topics</Link></li>
+              <li className="app-nav-link-item"><Link className="app-nav-link" to="/who-we-are">Who We Are</Link></li>
               <li className="app-nav-link-item"><Link onClick={this.openModal} className="app-nav-link">Keyword Search</Link></li>
             </ul>
           </nav>
@@ -64,18 +35,12 @@ const App = React.createClass({
             {this.props.children}
           </div>
         </div>
-
-        <Modal isOpen={this.state.open} onRequestClose={this.closeModal} contentLabel='content'>
-          <SearchPage />
-        </Modal>
       </div>
     );
   }
 });
 
-export { App, AppRouter };
-
-const SlugSwitch = React.createClass({
+const TypeRouter = React.createClass({
   getInitialState: function() {
     return { self: {}, children: [], loaded: false };
   },
@@ -93,24 +58,28 @@ const SlugSwitch = React.createClass({
   },
 
   render: function() {
-    let component;
+    const typePageMapping = {
+      'home': HomePage,
+      'topic': TopicPage,
+      'subtopic': SubtopicPage,
+      'static': StaticPage
+    };
     const type = this.state.self.type;
-
-    switch (type) {
-      case 'home':
-        component = HomePage;
-        break;
-      case 'topic':
-        component = TopicPage;
-        break;
-      case 'subtopic':
-        component = SubtopicPage;
-        break;
-      case 'search':
-      case 'static':
-        break;
-    }
+    const component = typePageMapping[type];
 
     return component ? React.createElement(component, this.state) : null;
+  }
+});
+
+export default React.createClass({
+  render: function() {
+    return (
+      <Router history={browserHistory}>
+        <Route path="/" component={App}>
+          <IndexRedirect to='/home' />
+          <Route path="/:slug" component={TypeRouter} />
+        </Route>
+      </Router>
+    );
   }
 });

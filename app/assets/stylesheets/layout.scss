@@ -1,0 +1,26 @@
+.app {
+  .app-header {
+    .app-wordmarks {
+      .app-logo-link {
+        .app-logo {}
+      }
+      .app-title {
+        .app-title-link
+      }
+    }
+  }
+
+  .app-nav {
+    .app-nav-link-list {
+      .app-nav-link-item {
+        .app-nav-link {}
+      }
+    }
+  }
+
+  .app-wrapper-container {
+    position: relative;
+
+    .app-wrapper {}
+  }
+}
