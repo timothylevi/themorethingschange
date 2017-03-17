@@ -1,0 +1,1287 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+ */
+/*! normalize.css v4.1.1 | MIT License | github.com/necolas/normalize.css */
+/**
+ * 1. Change the default font family in all browsers (opinionated).
+ * 2. Prevent adjustments of font size after orientation changes in IE and iOS.
+ */
+/* line 25, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+html {
+  font-family: sans-serif;
+  /* 1 */
+  -ms-text-size-adjust: 100%;
+  /* 2 */
+  -webkit-text-size-adjust: 100%;
+  /* 2 */
+}
+
+/**
+ * Remove the margin in all browsers (opinionated).
+ */
+/* line 35, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+body {
+  margin: 0;
+}
+
+/* HTML5 display definitions
+   ========================================================================== */
+/**
+ * Add the correct display in IE 9-.
+ * 1. Add the correct display in Edge, IE, and Firefox.
+ * 2. Add the correct display in IE.
+ */
+/* line 48, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+main,
+menu,
+nav,
+section,
+summary {
+  /* 1 */
+  display: block;
+}
+
+/**
+ * Add the correct display in IE 9-.
+ */
+/* line 67, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+audio,
+canvas,
+progress,
+video {
+  display: inline-block;
+}
+
+/**
+ * Add the correct display in iOS 4-7.
+ */
+/* line 78, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+/**
+ * Add the correct vertical alignment in Chrome, Firefox, and Opera.
+ */
+/* line 87, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+progress {
+  vertical-align: baseline;
+}
+
+/**
+ * Add the correct display in IE 10-.
+ * 1. Add the correct display in IE.
+ */
+/* line 96, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+template,
+[hidden] {
+  display: none;
+}
+
+/* Links
+   ========================================================================== */
+/**
+ * 1. Remove the gray background on active links in IE 10.
+ * 2. Remove gaps in links underline in iOS 8+ and Safari 8+.
+ */
+/* line 109, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+a {
+  background-color: transparent;
+  /* 1 */
+  -webkit-text-decoration-skip: objects;
+  /* 2 */
+}
+
+/**
+ * Remove the outline on focused links when they are also active or hovered
+ * in all browsers (opinionated).
+ */
+/* line 119, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+a:active,
+a:hover {
+  outline-width: 0;
+}
+
+/* Text-level semantics
+   ========================================================================== */
+/**
+ * 1. Remove the bottom border in Firefox 39-.
+ * 2. Add the correct text decoration in Chrome, Edge, IE, Opera, and Safari.
+ */
+/* line 132, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+abbr[title] {
+  border-bottom: none;
+  /* 1 */
+  text-decoration: underline;
+  /* 2 */
+  text-decoration: underline dotted;
+  /* 2 */
+}
+
+/**
+ * Prevent the duplicate application of `bolder` by the next rule in Safari 6.
+ */
+/* line 142, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+b,
+strong {
+  font-weight: inherit;
+}
+
+/**
+ * Add the correct font weight in Chrome, Edge, and Safari.
+ */
+/* line 151, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+b,
+strong {
+  font-weight: bolder;
+}
+
+/**
+ * Add the correct font style in Android 4.3-.
+ */
+/* line 160, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+dfn {
+  font-style: italic;
+}
+
+/**
+ * Correct the font size and margin on `h1` elements within `section` and
+ * `article` contexts in Chrome, Firefox, and Safari.
+ */
+/* line 169, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+h1 {
+  font-size: 1em;
+  margin: 0.67em 0;
+}
+
+/**
+ * Add the correct background and color in IE 9-.
+ */
+/* line 178, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+mark {
+  background-color: #ff0;
+  color: #000;
+}
+
+/**
+ * Add the correct font size in all browsers.
+ */
+/* line 187, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+small {
+  font-size: 80%;
+}
+
+/**
+ * Prevent `sub` and `sup` elements from affecting the line height in
+ * all browsers.
+ */
+/* line 196, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+/* line 204, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+sub {
+  bottom: -0.25em;
+}
+
+/* line 208, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+sup {
+  top: -0.5em;
+}
+
+/* Embedded content
+   ========================================================================== */
+/**
+ * Remove the border on images inside links in IE 10-.
+ */
+/* line 219, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+img {
+  border-style: none;
+}
+
+/**
+ * Hide the overflow in IE.
+ */
+/* line 227, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Grouping content
+   ========================================================================== */
+/**
+ * 1. Correct the inheritance and scaling of font size in all browsers.
+ * 2. Correct the odd `em` font sizing in all browsers.
+ */
+/* line 239, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  /* 1 */
+  font-size: 1em;
+  /* 2 */
+}
+
+/**
+ * Add the correct margin in IE 8.
+ */
+/* line 251, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+figure {
+  margin: 1em 40px;
+}
+
+/**
+ * 1. Add the correct box sizing in Firefox.
+ * 2. Show the overflow in Edge and IE.
+ */
+/* line 260, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+hr {
+  box-sizing: content-box;
+  /* 1 */
+  height: 0;
+  /* 1 */
+  overflow: visible;
+  /* 2 */
+}
+
+/* Forms
+   ========================================================================== */
+/**
+ * 1. Change font properties to `inherit` in all browsers (opinionated).
+ * 2. Remove the margin in Firefox and Safari.
+ */
+/* line 274, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+button,
+input,
+select,
+textarea {
+  font: inherit;
+  /* 1 */
+  margin: 0;
+  /* 2 */
+}
+
+/**
+ * Restore the font weight unset by the previous rule.
+ */
+/* line 286, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+optgroup {
+  font-weight: bold;
+}
+
+/**
+ * Show the overflow in IE.
+ * 1. Show the overflow in Edge.
+ */
+/* line 295, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+button,
+input {
+  /* 1 */
+  overflow: visible;
+}
+
+/**
+ * Remove the inheritance of text transform in Edge, Firefox, and IE.
+ * 1. Remove the inheritance of text transform in Firefox.
+ */
+/* line 305, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+button,
+select {
+  /* 1 */
+  text-transform: none;
+}
+
+/**
+ * 1. Prevent a WebKit bug where (2) destroys native `audio` and `video`
+ *    controls in Android 4.
+ * 2. Correct the inability to style clickable types in iOS and Safari.
+ */
+/* line 316, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+button,
+html [type="button"],
+[type="reset"],
+[type="submit"] {
+  -webkit-appearance: button;
+  /* 2 */
+}
+
+/**
+ * Remove the inner border and padding in Firefox.
+ */
+/* line 327, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+button::-moz-focus-inner,
+[type="button"]::-moz-focus-inner,
+[type="reset"]::-moz-focus-inner,
+[type="submit"]::-moz-focus-inner {
+  border-style: none;
+  padding: 0;
+}
+
+/**
+ * Restore the focus styles unset by the previous rule.
+ */
+/* line 339, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+button:-moz-focusring,
+[type="button"]:-moz-focusring,
+[type="reset"]:-moz-focusring,
+[type="submit"]:-moz-focusring {
+  outline: 1px dotted ButtonText;
+}
+
+/**
+ * Change the border, margin, and padding in all browsers (opinionated).
+ */
+/* line 350, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+/**
+ * 1. Correct the text wrapping in Edge and IE.
+ * 2. Correct the color inheritance from `fieldset` elements in IE.
+ * 3. Remove the padding so developers are not caught out when they zero out
+ *    `fieldset` elements in all browsers.
+ */
+/* line 363, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+legend {
+  box-sizing: border-box;
+  /* 1 */
+  color: inherit;
+  /* 2 */
+  display: table;
+  /* 1 */
+  max-width: 100%;
+  /* 1 */
+  padding: 0;
+  /* 3 */
+  white-space: normal;
+  /* 1 */
+}
+
+/**
+ * Remove the default vertical scrollbar in IE.
+ */
+/* line 376, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+textarea {
+  overflow: auto;
+}
+
+/**
+ * 1. Add the correct box sizing in IE 10-.
+ * 2. Remove the padding in IE 10-.
+ */
+/* line 385, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+[type="checkbox"],
+[type="radio"] {
+  box-sizing: border-box;
+  /* 1 */
+  padding: 0;
+  /* 2 */
+}
+
+/**
+ * Correct the cursor style of increment and decrement buttons in Chrome.
+ */
+/* line 395, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+[type="number"]::-webkit-inner-spin-button,
+[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+/**
+ * 1. Correct the odd appearance in Chrome and Safari.
+ * 2. Correct the outline style in Safari.
+ */
+/* line 405, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+[type="search"] {
+  -webkit-appearance: textfield;
+  /* 1 */
+  outline-offset: -2px;
+  /* 2 */
+}
+
+/**
+ * Remove the inner padding and cancel buttons in Chrome and Safari on OS X.
+ */
+/* line 414, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+[type="search"]::-webkit-search-cancel-button,
+[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+/**
+ * Correct the text style of placeholders in Chrome, Edge, and Safari.
+ */
+/* line 423, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+::-webkit-input-placeholder {
+  color: inherit;
+  opacity: 0.54;
+}
+
+/**
+ * 1. Correct the inability to style clickable types in iOS and Safari.
+ * 2. Change font properties to `inherit` in Safari.
+ */
+/* line 433, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+::-webkit-file-upload-button {
+  -webkit-appearance: button;
+  /* 1 */
+  font: inherit;
+  /* 2 */
+}
+
+/* line 440, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.search-page .search-page-title {
+  font-size: 2rem;
+}
+/* line 442, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.search-page .search-page-tags {
+  margin: 1rem 0 0 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 447, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.search-page .search-page-tags .search-page-tag {
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  background-color: green;
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: white;
+  border-radius: 2px;
+}
+/* line 456, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.search-page .search-page-tags .search-page-tag:hover {
+  cursor: pointer;
+}
+
+/* line 498, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+body {
+  background-color: white;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: top;
+  height: 100vh;
+  font-family: 'Muli', sans-serif;
+}
+
+/* line 510, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+h1, h2, h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 1px;
+}
+
+/* line 515, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+h1 {
+  font-weight: 700;
+  font-size: 120%;
+}
+
+/* line 520, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+h2 {
+  font-size: 200%;
+}
+
+/* line 521, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+h3 {
+  font-size: 110%;
+}
+
+/* line 522, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+h2, h3 {
+  font-weight: 600;
+}
+
+/* line 524, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+a {
+  color: black;
+  text-decoration: none;
+}
+/* line 527, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+a:visited {
+  color: black;
+}
+/* line 530, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+a:hover {
+  color: black;
+  text-decoration: underline;
+}
+
+/* line 536, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-background,
+.app-background-replace {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-size: cover;
+}
+
+/* line 546, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-background {
+  z-index: -10;
+}
+
+/* line 550, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-background-replace {
+  opacity: 0;
+  z-index: -1;
+}
+
+/* line 555, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-wrapper {
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* line 560, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: 1rem 3.5% 1rem 3%;
+  top: 0;
+  left: 0;
+  right: 0;
+  position: relative;
+}
+/* line 574, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-header .app-logo:hover {
+  text-decoration: none;
+}
+/* line 578, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-header .app-logo img {
+  width: 40%;
+  min-width: 100px;
+  max-width: 350px;
+}
+/* line 585, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-header .app-title {
+  margin: 0;
+  font-size: 150%;
+}
+/* line 589, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-header .app-title a:hover {
+  text-decoration: none;
+}
+/* line 594, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-header .app-search {
+  text-align: center;
+  margin: 0 1rem;
+}
+/* line 599, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-header .app-wordmarks {
+  margin-left: 0.5rem;
+}
+/* line 603, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-header .app-nav {
+  align-self: flex-end;
+}
+/* line 606, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-header .app-nav .app-nav-link-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-align: right;
+}
+/* line 612, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-header .app-nav .app-nav-link-list .app-nav-link-item {
+  display: inline-block;
+  margin: 0 0.5rem;
+}
+
+/* line 641, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-page .page-title {
+  margin: 0;
+}
+/* line 645, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-page .page-description {
+  margin: 0;
+}
+/* line 649, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.app-page .page-main {
+  padding: 1rem 0 0 0;
+}
+
+/* line 654, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.main-page {
+  max-height: 450px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+/* line 659, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.main-page .main-page-header-image {
+  height: 12.5rem;
+  background-size: cover;
+  background-position: center;
+}
+/* line 665, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.main-page .main-page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* line 670, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.main-page .main-page-header .site-title {
+  margin: 1rem 0;
+}
+/* line 671, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.main-page .main-page-header .enter-site {
+  float: right;
+}
+/* line 674, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.main-page a {
+  color: blue;
+}
+/* line 676, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.main-page a:hover {
+  cursor: pointer;
+}
+/* line 681, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.main-page .site-description {
+  margin-top: 0;
+}
+/* line 682, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.main-page .read-more-text {
+  display: none;
+}
+/* line 685, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.main-page .enter-site:hover, .main-page .read-more-button:hover {
+  text-decoration: none;
+}
+
+/* line 690, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.paths-index .page-header {
+  margin-bottom: 0;
+}
+/* line 693, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.paths-index .page-main {
+  padding-top: 0;
+}
+/* line 696, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.paths-index .paths-list {
+  display: flex;
+  justify-content: space-between;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 703, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.paths-index .paths-list .path {
+  height: 400px;
+  width: 48.75%;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  border-radius: 5px;
+  box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.2);
+}
+/* line 712, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.paths-index .paths-list .path:hover {
+  box-shadow: 0px 5px 10px 0 rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+}
+/* line 717, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.paths-index .paths-list .path .path-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/* line 724, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.paths-index .paths-list .path .path-link:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+/* line 728, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.paths-index .paths-list .path .path-link .path-info {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  background-image: linear-gradient(transparent 0%, #373737);
+  border-radius: 5px;
+  color: white;
+}
+/* line 738, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.paths-index .paths-list .path .path-link .path-info .path-title,
+.paths-index .paths-list .path .path-link .path-info .path-description {
+  margin: 0;
+}
+/* line 743, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.paths-index .paths-list .path .path-link .path-info .path-title {
+  font-size: 200%;
+}
+
+/* line 753, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.path-show .page-header {
+  margin-left: 0;
+}
+/* line 757, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.path-show .sub-topic-lists {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 761, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.path-show .sub-topic-lists .sub-topic-list {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  width: 49.5%;
+  max-height: 24.75rem;
+  overflow: scroll;
+  border-radius: 5px;
+}
+/* line 770, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.path-show .sub-topic-lists .sub-topic-list .sub-topic-list-item {
+  background-color: #dddddd;
+  background-size: cover;
+  background-position: center;
+  border-radius: 5px;
+  margin-bottom: 0.5rem;
+  position: relative;
+  height: 125px;
+  align-items: flex-end;
+  position: relative;
+}
+/* line 781, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.path-show .sub-topic-lists .sub-topic-list .sub-topic-list-item:hover {
+  cursor: pointer;
+}
+/* line 785, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.path-show .sub-topic-lists .sub-topic-list .sub-topic-list-item .sub-topic-link {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+/* line 792, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.path-show .sub-topic-lists .sub-topic-list .sub-topic-list-item .sub-topic-link:hover {
+  text-decoration: none;
+}
+/* line 794, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.path-show .sub-topic-lists .sub-topic-list .sub-topic-list-item .sub-topic-link .sub-topic-info {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+}
+/* line 801, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.path-show .sub-topic-lists .sub-topic-list .sub-topic-list-item .sub-topic-link .sub-topic-info .sub-topic-title {
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+/* line 806, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.path-show .sub-topic-lists .sub-topic-list .sub-topic-list-item .sub-topic-link .sub-topic-info .sub-topic-title,
+.path-show .sub-topic-lists .sub-topic-list .sub-topic-list-item .sub-topic-link .sub-topic-info .sub-topic-description {
+  margin: 0;
+}
+
+/* line 818, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.theme-show .page-header {
+  border-radius: 0;
+}
+/* line 822, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.theme-show .theme-contents {
+  padding: 0;
+  display: flex;
+  justify-content: space-between;
+}
+/* line 827, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.theme-show .theme-contents .theme-text,
+.theme-show .theme-contents .theme-media {
+  margin: 0;
+  padding: 0 1rem;
+  margin-top: 1rem;
+  flex-basis: 49.5%;
+  flex-grow: 1;
+  max-height: 25rem;
+  overflow: scroll;
+  text-align: justify;
+}
+/* line 839, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.theme-show .theme-contents .theme-text:empty,
+.theme-show .theme-contents .theme-media:empty {
+  display: none;
+}
+/* line 844, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.theme-show .theme-contents .theme-text p:first-of-type {
+  margin-top: 0;
+}
+/* line 848, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.theme-show .theme-contents .theme-text a {
+  color: blue;
+}
+
+/* line 854, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper {
+  width: 48%;
+  margin: 1%;
+  cursor: pointer;
+}
+/* line 861, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper.highlighted .media-type {
+  background-color: yellow;
+  color: black;
+}
+/* line 867, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper.media-imgCollection-wrapper {
+  height: 5rem;
+}
+/* line 870, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper.media-imgCollection-wrapper .imgCollection-images-list {
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+}
+/* line 875, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper.media-imgCollection-wrapper .imgCollection-images-list .imgCollection-images-list-item {
+  width: 35%;
+  height: 100%;
+  display: inline-block;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+/* line 883, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper.media-imgCollection-wrapper .imgCollection-images-list .imgCollection-images-list-item:nth-child(1) {
+  position: absolute;
+  z-index: 3;
+  left: 0;
+}
+/* line 889, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper.media-imgCollection-wrapper .imgCollection-images-list .imgCollection-images-list-item:nth-child(2) {
+  position: absolute;
+  z-index: 2;
+  left: 33.3%;
+  opacity: 0.85;
+}
+/* line 896, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper.media-imgCollection-wrapper .imgCollection-images-list .imgCollection-images-list-item:nth-child(3) {
+  position: absolute;
+  z-index: 1;
+  left: 66.6%;
+  opacity: 0.7;
+}
+/* line 905, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper .media-type {
+  position: absolute;
+  bottom: 15px;
+  left: -2px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  align-items: center;
+  z-index: 10;
+  padding: 5px 7.5px;
+  font-size: 80%;
+  text-align: left;
+  display: none;
+}
+/* line 919, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper .media-item {
+  width: 100%;
+}
+/* line 922, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-wrapper .media-map {
+  border: 0;
+}
+
+/* line 925, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.modal-img {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+/* line 936, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.modal-map,
+.modal-pdf,
+.modal-video,
+.modal-link {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+/* line 944, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.modal-map .modal-link-iframe,
+.modal-pdf .modal-link-iframe,
+.modal-video .modal-link-iframe,
+.modal-link .modal-link-iframe {
+  border: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+/* line 952, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.modal-link-over {
+  position: absolute;
+  left: 1rem;
+  right: 1rem;
+  bottom: 1rem;
+  top: 1rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* line 964, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.modal-link-over .fa {
+  color: white;
+}
+/* line 966, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.modal-link-over .fa:hover {
+  color: white;
+}
+/* line 969, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.modal-link-over:hover {
+  text-decoration: none;
+}
+/* line 970, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.modal-link-over:visited {
+  color: white;
+}
+
+/* line 973, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-pdf-wrapper,
+.media-link-wrapper,
+.media-audio-wrapper {
+  padding: 0;
+  background-color: #ddd;
+}
+/* line 979, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-pdf-wrapper .media-title,
+.media-link-wrapper .media-title,
+.media-audio-wrapper .media-title {
+  margin: 0;
+  padding: 0.5rem;
+}
+
+/* line 985, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-img-wrapper img {
+  display: block;
+}
+
+/* line 989, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.media-map-wrapper iframe {
+  pointer-events: none;
+  display: block;
+}
+
+/* line 994, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.loading-page {
+  text-align: center;
+  font-size: 2rem;
+  color: #555;
+  animation: spin 1s infinite ease-in-out;
+  opacity: 1 !important;
+  display: block;
+}
+
+@keyframes spin {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+/* line 1010, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.search-results {
+  display: flex;
+  justify-content: space-between;
+}
+/* line 1014, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.search-results .search-results-pages,
+.search-results .search-results-media {
+  flex-basis: 49%;
+}
+/* line 1020, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.search-results .search-results-pages .theme-info {
+  min-height: 5rem;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+}
+
+/* line 1030, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.ReactModalPortal {
+  z-index: 100;
+}
+
+/* line 1036, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+button {
+  cursor: pointer;
+}
+
+/* line 1040, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.section {
+  position: relative;
+}
+/* line 1043, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.section .section-inner {
+  width: 75%;
+  margin: auto;
+  padding: 2rem 1rem 4rem;
+}
+/* line 1048, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.section .section-inner .section-title {
+  margin: 0;
+  text-align: center;
+}
+
+/* line 1057, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .about-section {
+  color: white;
+  position: relative;
+}
+/* line 1061, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .about-section .map-overlay {
+  background-color: rgba(51, 102, 51, 0.78);
+}
+/* line 1065, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .about-section .view-map-button {
+  background-color: rgba(17, 34, 17, 0.78);
+}
+/* line 1069, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .about-section .section-content {
+  max-height: 200px;
+  overflow: hidden;
+  position: relative;
+}
+/* line 1075, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .about-section .read-more-container {
+  width: 100%;
+  text-align: center;
+  margin: 0;
+  margin-top: 1rem;
+  padding: 0 0 0 0;
+  pointer-events: none;
+}
+/* line 1083, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .about-section .read-more-container .read-more-button {
+  pointer-events: auto;
+  padding: 0.5rem 1rem;
+  color: inherit;
+  border: none;
+  background-color: rgba(102, 179, 102, 0.78);
+}
+/* line 1093, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section {
+  color: white;
+}
+/* line 1096, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section .map-overlay {
+  background-color: rgba(0, 0, 0, 0.69);
+}
+/* line 1100, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section .view-map-button {
+  background-color: rgba(85, 170, 85, 0.78);
+}
+/* line 1104, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section .articles {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  position: relative;
+}
+/* line 1111, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section .article-container {
+  width: 45%;
+  padding: 1rem;
+  color: inherit;
+  background-color: transparent;
+  transition: background-color 250ms;
+}
+/* line 1120, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section .article-container:hover {
+  background-color: rgba(128, 128, 128, 0.69);
+  text-decoration: none;
+}
+/* line 1125, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section .article-container .article-thumbnail {
+  float: left;
+  max-width: 25%;
+  margin-right: 2.5%;
+}
+/* line 1131, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section .article-container .article-info {
+  margin-left: 27.5%;
+}
+/* line 1134, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section .article-container .article-title {
+  font-size: 100%;
+  margin: 0;
+}
+/* line 1138, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section .article-container .article-source {
+  font-size: 50%;
+}
+/* line 1141, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.home-page .news-section .article-container .article-description {
+  margin: 0;
+}
+
+/* line 1152, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.map-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+}
+/* line 1168, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.map-background .mapboxgl-ctrl-attrib {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  text-align: center;
+  font-size: 50%;
+  color: rgba(0, 0, 0, 0.5);
+  background: white;
+  background-image: linear-gradient(to bottom, transparent 75%, #fff 100%);
+}
+/* line 1180, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.map-background ~ .map-overlay {
+  position: relative;
+  opacity: 1;
+  transition: opacity 500ms ease-in-out;
+}
+/* line 1185, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.map-background ~ .map-overlay.map-overlay-hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* line 1192, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.view-map-container {
+  position: absolute;
+  bottom: 1rem;
+  width: 100%;
+  text-align: center;
+}
+/* line 1197, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.view-map-container .view-map-button {
+  padding: 0.5rem 1rem;
+  font-size: 75%;
+  color: inherit;
+  border: none;
+}
+
+/* line 1205, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.topic-image-list {
+  padding-left: 0;
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin: auto;
+  flex-wrap: wrap;
+}
+/* line 1213, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.topic-image-list .topic-image {
+  list-style-type: none;
+  width: 9rem;
+  height: 9rem;
+  border-radius: 50%;
+  margin: 0.5rem 1rem;
+  background-size: cover;
+}
+
+/* line 1223, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+a.topic-link {
+  color: #888;
+  font-weight: bold;
+  font-size: 90%;
+}
+
+/* line 1230, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.topics-section .section-inner {
+  width: 100%;
+}
+
+/* line 1236, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.topic-section .section-inner {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  width: 100%;
+  margin: 1rem 0;
+  padding: 1rem 0rem;
+}
+/* line 1244, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.topic-section .section-inner .topic-text, .topic-section .section-inner .topic-media {
+  width: 46%;
+  min-width: 15rem;
+  margin: 0 1%;
+}
+/* line 1250, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.topic-section .section-inner .topic-media {
+  position: relative;
+  height: 66vh;
+  overflow: hidden;
+}
+/* line 1255, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.topic-section .section-inner .topic-media .topic-view-related-media {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 35%;
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, #ffffff 80%, #ffffff 100%);
+  pointer-events: none;
+}
+/* line 1264, /Users/tim/workspace/tmtc/app/assets/stylesheets/application.scss */
+.topic-section .section-inner .topic-media .topic-view-related-media a {
+  position: absolute;
+  bottom: 1rem;
+  right: 1rem;
+  left: 1rem;
+  font-weight: bold;
+  font-size: 110%;
+  text-align: center;
+  pointer-events: auto;
+}
