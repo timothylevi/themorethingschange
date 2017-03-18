@@ -1,8 +1,20 @@
 .app-media-panel {
   .app-media-item-wrapper {
-    .app-media-item {}
-    .app-media-type {}
-    .app-media-title {}
+    width: 100%;
+    margin: 1%;
+    cursor: pointer;
+
+    .app-media-item {
+      width: 50%;
+      float: left;
+      margin-right: 1rem;
+    }
+    .app-media-type {
+      display: none;
+    }
+    .app-media-title {
+      margin: 0;
+    }
     .app-media-description {}
   }
 

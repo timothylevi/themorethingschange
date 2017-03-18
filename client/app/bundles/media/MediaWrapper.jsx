@@ -45,7 +45,7 @@ const MediaWrapper = React.createClass({
         className={`app-media-item-wrapper app-media-item-wrapper--${type}`}>
         {this.props.children}
 
-        <div className="media-type" onMouseOver={this.typeOver} onMouseOut={this.typeOut}>
+        <div className="app-media-type" onMouseOver={this.typeOver} onMouseOut={this.typeOut}>
           <i className={`fa fa-${typeIcon}`}/>&nbsp;{typeLabel}
         </div>
 

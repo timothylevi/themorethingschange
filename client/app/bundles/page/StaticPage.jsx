@@ -5,13 +5,19 @@ const StaticPage = React.createClass({
     const innerHtml = {__html: this.props.self.content};
     return (
       <div className="app-page app-page--static">
-        <h2 className="app-page-title">
-          {this.props.self.title}
-        </h2>
-        <p
-          className="app-page-content"
-          dangerouslySetInnerHTML={innerHtml}
-        />
+        <div className="app-section-wrapper">
+          <div className="app-section">
+            <h2 className="app-section-title">
+              {this.props.self.title}
+            </h2>
+            <div className="app-section-content-wrapper">
+              <p
+                className="app-section-content"
+                dangerouslySetInnerHTML={innerHtml}
+              />
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

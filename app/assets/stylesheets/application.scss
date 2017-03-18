@@ -23,53 +23,7 @@
 
 // Lib
 .ReactModalPortal { z-index: 100; }
-
- // App
- .theme-show {
-   .theme-contents {
-     padding: 0;
-     display: flex;
-     justify-content: space-between;
-
-     .theme-text,
-     .theme-media {
-       margin: 0;
-       padding: 0 1rem;
-       margin-top: 1rem;
-       flex-basis: 49.5%;
-       flex-grow: 1;
-       max-height: 25rem;
-       overflow: scroll;
-       text-align: justify;
-     }
-
-     .theme-text:empty,
-     .theme-media:empty {
-       display: none;
-     }
-
-     .theme-text p:first-of-type {
-       margin-top: 0;
-     }
-
-     .theme-text a {
-       color: blue;
-     }
-   }
- }
-
  .media-wrapper {
-   width: 48%;
-   margin: 1%;
-   cursor: pointer;
-
-   &.highlighted {
-
-     .media-type {
-       background-color: yellow;
-       color: black;
-     }
-   }
    .media-type {
      position: absolute;
      bottom: 15px;
@@ -83,9 +37,6 @@
      font-size: 80%;
      text-align: left;
      display: none;
-   }
-   .media-item {
-     width: 100%;
    }
    .media-map { border: 0; }
  }

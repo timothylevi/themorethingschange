@@ -46,6 +46,7 @@
         padding: 0.5rem 1rem;
         color: inherit;
         border: none;
+        border-radius: 5px;
       }
     }
   }
@@ -54,6 +55,13 @@
 .app-section--about {
   .section-background-overlay {
     background-color: darken($about-section-background-color, 20%);
+  }
+
+  .section-background-view-button-container {
+    color: white;
+    .section-background-view-button {
+      background-color: darken($about-section-background-color, 25%);
+    }
   }
 
   .app-section {
@@ -76,8 +84,11 @@
     background-color: $news-section-background-color;
   }
 
-  .section-background-view-button {
-    background-color: lighten($about-section-background-color, 20%);
+  .section-background-view-button-container {
+    color: white;
+    .section-background-view-button {
+      background-color: lighten($about-section-background-color, 20%);
+    }
   }
 
   .app-section-content-wrapper {
@@ -157,7 +168,7 @@
 
     .app-section-content-list {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       width: 100%;
       margin: auto;
       flex-wrap: wrap;
@@ -185,8 +196,9 @@
   }
 }
 .app-section--sub-topic {
-  .app-section {
+  min-height: unset;
 
+  .app-section {
     .app-section-content-wrapper {
       display: flex;
       justify-content: space-between;
@@ -198,16 +210,18 @@
       .app-section-content {
         min-width: 15rem;
         margin: 0 1%;
+        flex-grow: 1;
+        &:empty { display: none; }
 
         &.app-section-content-item--topic {
-          width: 57%;
+          flex-basis: 57%;
           margin-left: 0;
 
           .topic-text {}
           .topic-title {}
         }
         &.app-section-content-item--topic-media {
-          width: 35%;
+          flex-basis: 35%;
           position: relative;
           height: 66vh;
           overflow: hidden;
