@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaWrapper from '../MediaWrapper.jsx';
+import MediaWrapper from './MediaWrapper';
 
 const Video = React.createClass({
   render: function() {
@@ -13,7 +13,7 @@ const Video = React.createClass({
 
     return (
       <MediaWrapper type="video" slug={this.props.slug} modalContent={modalContent} id={this.props.id}>
-        <img className="media-video media-item" src={this.props.thumbnail} />
+        <img className="app-media-item" src={this.props.thumbnail} />
       </MediaWrapper>
     );
   }

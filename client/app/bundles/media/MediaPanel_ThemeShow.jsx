@@ -1,14 +1,9 @@
 import React from 'react';
 const Masonry = require('react-masonry-component');
 
-import extractProperties from '../request_helpers.js';
-import { baseUrl, masonryOptions } from '../constants.js';
-import MediaImg from './MediaTypes/Img_MediaPanel.jsx';
-import MediaMap from './MediaTypes/Map_MediaPanel.jsx';
-import MediaPdf from './MediaTypes/Pdf_MediaPanel.jsx';
-import MediaLink from './MediaTypes/Link_MediaPanel.jsx';
-import MediaVideo from './MediaTypes/Video_MediaPanel.jsx';
-import MediaAudio from './MediaTypes/Audio_MediaPanel.jsx';
+import extractProperties from '../helpers/requests.js';
+import { baseUrl, masonryOptions } from '../helpers/constants.js';
+import { MediaImg, MediaMap, MediaPdf, MediaLink, MediaVideo, MediaAudio } from './index';
 
 const MediaPanel = React.createClass({
   render: function() {
@@ -34,7 +29,7 @@ const MediaPanel = React.createClass({
     });
 
     return (
-      <Masonry className='theme-media' options={masonryOptions}
+      <Masonry className='app-media-panel' options={masonryOptions}
         updateOnEachImageLoad={true}>
         {mediaObjects}
       </Masonry>

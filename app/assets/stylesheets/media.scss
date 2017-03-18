@@ -1,0 +1,23 @@
+.app-media-panel {
+  .app-media-item-wrapper {
+    .app-media-item {}
+    .app-media-type {}
+    .app-media-title {}
+    .app-media-description {}
+  }
+
+  .app-media-item-wrapper--img {
+    .app-media-item {}
+    .app-media-title {}
+    .app-media-description {}
+  }
+  .app-media-item-wrapper--map {
+    .app-media-item {}
+  }
+  .app-media-item-wrapper--pdf {}
+  .app-media-item-wrapper--video {}
+  .app-media-item-wrapper--article {}
+  .app-media-item-wrapper--audio {}
+}
+
+// TODO: Modals

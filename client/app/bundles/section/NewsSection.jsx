@@ -1,8 +1,37 @@
 import React from 'react';
-import ArticleComponent from '../Components/ArticleComponent.jsx';
-import { getServerRequest } from '../request_helpers.js';
-import MapBackground from '../Components/Backgrounds/MapBackground.jsx';
 import { _ } from 'underscore';
+import MapBackground from '../background/MapBackground';
+import { getServerRequest, getOgInfo } from '../helpers/requests';
+
+const ArticleComponent = React.createClass({
+  componentDidMount: function() {
+    getOgInfo(this.props.url, this.setOgDataState);
+  },
+
+  setOgDataState: function(json) {
+    this.setState({
+      thumbnail: json.hybridGraph.image,
+      title: json.hybridGraph.title,
+      source: json.hybridGraph.site_name,
+      description: json.hybridGraph.description,
+      url: json.hybridGraph.url
+    });
+  },
+
+  render: function() {
+    if (! this.state) return <div />;
+    return (
+      <a className="article-container" href={this.state.url} target="_blank">
+        <img className="article-thumbnail" src={this.state.thumbnail} />
+        <div className="article-info">
+          <h3 className="article-title">{this.state.title}</h3>
+          <small className="article-source">{this.state.source}</small>
+          <p className="article-description">{this.state.description}</p>
+        </div>
+      </a>
+    );
+  }
+});
 
 const NewsSection = React.createClass({
   componentDidMount: function() {
@@ -14,9 +43,12 @@ const NewsSection = React.createClass({
   },
 
   createArticleComponents: function(articles) {
-    return _.map(articles, function(article) {
-      article.key = article.url;
-      return React.createElement(ArticleComponent, article);
+    return _.map(articles, function(article, index) {
+      return (
+        <li key={article.url} className="app-section-content-item app-section-content-item--article">
+          <ArticleComponent {...article} />
+        </li>
+      );
     });
   },
 
@@ -24,12 +56,14 @@ const NewsSection = React.createClass({
     const articles = this.state && this.state.children;
 
     return (
-      <div className="section news-section">
+      <div className="app-section-wrapper app-section--news">
         <MapBackground section='news'>
-          <div className="section-inner">
-            <h2 className="section-title">{this.props.title}</h2>
-            <div className="section-content articles">
-              { articles ? this.createArticleComponents(articles) : null }
+          <div className="app-section">
+            <h2 className="app-section-title">{this.props.title}</h2>
+            <div className="app-section-content-wrapper">
+              <ul className="app-section-content app-section-content-list">
+                { articles ? this.createArticleComponents(articles) : null }
+              </ul>
             </div>
           </div>
         </MapBackground>

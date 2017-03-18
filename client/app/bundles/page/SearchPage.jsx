@@ -1,8 +1,8 @@
 import React from 'react';
-import { getServerRequest } from '../request_helpers.js';
-import { Tokenizer } from 'react-typeahead';
 import fuzzy from 'fuzzy';
 import { _ } from 'underscore';
+import { Tokenizer } from 'react-typeahead';
+import { getServerRequest } from '../helpers/requests.js';
 
 const SearchPage = React.createClass({
   getInitialState: function() {
@@ -37,8 +37,6 @@ const SearchPage = React.createClass({
   render: function() {
     const _this = this;
 
-    console.log(this);
-
     const resultComponents = _.chain(this.state.results)
       .groupBy('type')
       .map(function(value, type) {
@@ -55,48 +53,64 @@ const SearchPage = React.createClass({
       .value();
 
     return (
-      <div className="search-page">
-        <h1 className="search-page-title">Keyword search</h1>
-        <Tokenizer
-          ref="tokenizer"
-          className="search-page-typeahead"
-          showOptionsWhenEmpty={true}
-          options={this.state.page ? this.state.page.children : []}
-          onTokenAdd={function(token) {
-            _this.refs.tokenizer.refs.typeahead.setEntryText('');
-            _this.refs.tokenizer.refs.typeahead.setState({ showResults: true });
-            getServerRequest(token.slug, function(data) {
-              _this.addResults(data, token.slug);
-            });
-          }}
-          onTokenRemove={_this.removeResults}
-          filterOption={function(input, option) {
-            if (_this.refs.tokenizer.getSelectedTokens().includes(option)) return false;
-            var filtered = fuzzy
-              .filter(input, _.pluck(_this.state.page.children, "title"))
-              .map(function(res) { return res.string; })
-              .includes(option.title);
-            return filtered;
-          }}
-          displayOption="title"
-        />
-        <ul className="search-page-tags">
-        {this.state.page && this.state.page.children.map(function(tag, index) {
-          if (tag.selected) return null;
-          return (
-            <li className="search-page-tag" key={tag.slug}
-              onClick={function() {
-                _this.refs.tokenizer._addTokenForValue(tag);
-              }}>
-              {tag.title}
-            </li>
-          );
-        })}
-        </ul>
-        <h2 className="search-results-title">Results</h2>
-        <ul className="search-results">
-          {resultComponents}
-        </ul>
+      <div className="app-page app-page--search">
+        <h1 className="app-page-title">Keyword search</h1>
+        <div className="app-section-wrapper app-section--search-input">
+          <div className="app-section">
+            <div className="app-section-content-wrapper">
+              <div className="app-section-content">
+                <Tokenizer
+                  ref="tokenizer"
+                  className="app-section-content-item app-section-content-item--input"
+                  showOptionsWhenEmpty={true}
+                  options={this.state.page ? this.state.page.children : []}
+                  onTokenAdd={function(token) {
+                    _this.refs.tokenizer.refs.typeahead.setEntryText('');
+                    _this.refs.tokenizer.refs.typeahead.setState({ showResults: true });
+                    getServerRequest(token.slug, function(data) {
+                      _this.addResults(data, token.slug);
+                    });
+                  }}
+                  onTokenRemove={_this.removeResults}
+                  filterOption={function(input, option) {
+                    if (_this.refs.tokenizer.getSelectedTokens().includes(option)) return false;
+                    var filtered = fuzzy
+                      .filter(input, _.pluck(_this.state.page.children, "title"))
+                      .map(function(res) { return res.string; })
+                      .includes(option.title);
+                    return filtered;
+                  }}
+                  displayOption="title"
+                />
+                <ul className="app-section-content-item app-section-content-item--tag-list">
+                  {this.state.page && this.state.page.children.map(function(tag, index) {
+                    if (tag.selected) return null;
+                    return (
+                      <li className="tag-item" key={tag.slug}
+                        onClick={function() {
+                          _this.refs.tokenizer._addTokenForValue(tag);
+                        }}>
+                        {tag.title}
+                      </li>
+                    );
+                  })}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="app-section-wrapper app-section--search-results">
+          <div className="app-section">
+            <div className="app-section-content-wrapper">
+              <div className="app-section-content">
+                <h2 className="search-results-title">Results</h2>
+                <ul className="search-results">
+                  {resultComponents}
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     );
   }

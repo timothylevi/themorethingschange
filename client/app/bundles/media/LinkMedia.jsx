@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaWrapper from '../MediaWrapper.jsx';
+import MediaWrapper from './MediaWrapper';
 
 const Link = React.createClass({
   render: function() {

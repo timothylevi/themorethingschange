@@ -42,7 +42,7 @@ const MediaWrapper = React.createClass({
     return (
       <div onClick={this.openModal}
         id={this.props.slug}
-        className={`media-wrapper media-${type}-wrapper ${type}-${this.props.id}`}>
+        className={`app-media-item-wrapper app-media-item-wrapper--${type}`}>
         {this.props.children}
 
         <div className="media-type" onMouseOver={this.typeOver} onMouseOut={this.typeOut}>

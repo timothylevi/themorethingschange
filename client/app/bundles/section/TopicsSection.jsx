@@ -15,19 +15,15 @@ const TopicsSection = React.createClass({
       _this.setState({
         selectedTopic: _this.props.topics[index]
       });
-
-      $('html, body').animate({
-        scrollTop: $(event.currentTarget).offset().top
-      }, 1500);
     }
   },
 
   render: function() {
     const _this = this;
     const selectedTopicDiv = this.state.selectedTopic ? (
-      <div className="section-content topics">
-        <h3>{this.state.selectedTopic.title}</h3>
-        <p dangerouslySetInnerHTML={{__html: this.state.selectedTopic.description}}/>
+      <div className="app-section-content app-section-content--topic">
+        <h3 className="topic-title">{this.state.selectedTopic.title}</h3>
+        <p className="topic-description">{this.state.selectedTopic.description}</p>
         <Link className="topic-link" to={`/${this.state.selectedTopic.slug}`}>Click to enter</Link>
       </div>
     ) : null;
@@ -36,7 +32,7 @@ const TopicsSection = React.createClass({
       return (
         <li
           style={{backgroundImage: `url(\"${value.backgroundImage}\")`}}
-          className="topic-image"
+          className="app-section-content-item app-section-content-item--topic-image"
           key={index}
           onMouseOver={_this.selectTopic(index)}
          />
@@ -44,13 +40,15 @@ const TopicsSection = React.createClass({
     });
 
     return (
-      <div className="section topics-section" id="topics">
-        <div className="section-inner">
-          <h2 className="section-title">{this.props.title}</h2>
-          <ul className="topic-image-list">
-            {topicImages}
-          </ul>
-          {selectedTopicDiv}
+      <div className="app-section-wrapper app-section--topics" id="topics">
+        <div className="app-section">
+          <h2 className="app-section-title">{this.props.title}</h2>
+          <div className="app-section-content-wrapper">
+            <ul className="app-section-content app-section-content-list">
+              {topicImages}
+            </ul>
+            {selectedTopicDiv}
+          </div>
         </div>
       </div>
     );

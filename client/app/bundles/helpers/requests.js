@@ -1,47 +1,27 @@
 import { _ } from 'underscore';
 import { ajax, getJSON } from 'jquery';
-import { baseUrl } from './constants.js';
+import constants from './constants.js';
 
-function getProp(key, versioned = true, def = '') {
-  return function(data) {
-    const obj = versioned ? data.versionedData : data.unversionedData;
-    return obj.hasOwnProperty(key) ? obj[key][0].value : def;
+const baseUrl = constants.baseUrl;
+
+function getProps(prop, data) {
+  const propKeyMap = {
+    background: ['http://scalar.usc.edu/2012/01/scalar-ns#background', false,],
+    description: ['http://purl.org/dc/terms/description',],
+    title: ['http://purl.org/dc/terms/title',],
+    sort: ['http://purl.org/dc/terms/spatial', true, 0,],
+    format: ['http://purl.org/dc/terms/format',],
+    content: ['http://rdfs.org/sioc/ns#content',],
+    thumbnail: ['http://simile.mit.edu/2003/10/ontologies/artstor#thumbnail',],
+    mediaUrl: ['http://simile.mit.edu/2003/10/ontologies/artstor#url',],
+    medium: ['http://purl.org/dc/terms/medium',],
+    type: ['http://purl.org/dc/terms/type',],
   };
+
+  const [key, versioned = true, def = ''] = propKeyMap[prop];
+  const obj = versioned ? data.versionedData : data.unversionedData;
+  return obj.hasOwnProperty(key) ? obj[key][0].value : def;
 }
-
-const getProps = {
-  backgroundImage: getProp('http://scalar.usc.edu/2012/01/scalar-ns#background', false),
-  description: getProp('http://purl.org/dc/terms/description'),
-  title: getProp('http://purl.org/dc/terms/title'),
-  sort: getProp('http://purl.org/dc/terms/spatial', true, 0),
-  format: getProp('http://purl.org/dc/terms/format'),
-  content: getProp('http://rdfs.org/sioc/ns#content'),
-  thumbnail: getProp('http://simile.mit.edu/2003/10/ontologies/artstor#thumbnail'),
-  mediaUrl: getProp('http://simile.mit.edu/2003/10/ontologies/artstor#url'),
-  medium: getProp('http://purl.org/dc/terms/medium'),
-  type: getProp('http://purl.org/dc/terms/type'),
-};
-
-function getServerRequest(slug, callback) {
-  return ajax({
-    url: `${baseUrl}/rdf/node/${slug}?format=json&rec=1&ref=1`,
-    dataType: 'jsonp',
-    success: function(json) {
-      callback(getData(json, slug));
-    }
-  });
-}
-
-function getOgInfo(url, callback) {
-  const appId = '588e83ad46cdcd0d00fd827e';
-  const requestUrl = 'https://opengraph.io/api/1.0/site/' + encodeURI(url) + '?app_id=' + appId;
-
-  return getJSON(requestUrl, function(json) {
-    callback(json);
-  });
-}
-
-export { getProps, getServerRequest, getOgInfo };
 
 function getData(data, slug) {
   const dataKeys = Object.keys(data);
@@ -56,15 +36,15 @@ function getData(data, slug) {
       const normalizedData = {
         slug: dataForKey.unversionedSlug,
         self: dataForKey.unversionedSlug === slug,
-        medium: getProps.medium(dataForKey),
-        title: getProps.title(dataForKey),
-        description: getProps.description(dataForKey),
-        backgroundImage: getProps.backgroundImage(dataForKey),
-        thumbnail: getProps.thumbnail(dataForKey),
-        content: getProps.content(dataForKey),
-        url: getProps.mediaUrl(dataForKey),
-        sort: getProps.sort(dataForKey),
-        type: getProps.type(dataForKey),
+        medium: getProps('medium', dataForKey),
+        title: getProps('title', dataForKey),
+        description: getProps('description', dataForKey),
+        background: getProps('background', dataForKey),
+        thumbnail: getProps('thumbnail', dataForKey),
+        content: getProps('content', dataForKey),
+        url: getProps('mediaUrl', dataForKey),
+        sort: getProps('sort', dataForKey),
+        type: getProps('type', dataForKey),
         parentSlug: slug
       };
 
@@ -127,3 +107,25 @@ function getDataForKey(data, versionedDataKey) {
     versionedData: versionedData
   };
 }
+
+function getServerRequest(slug, callback) {
+  return ajax({
+    url: `${baseUrl}/rdf/node/${slug}?format=json&rec=1&ref=1`,
+    dataType: 'jsonp',
+    success: function(json) {
+      debugger;
+      callback(getData(json, slug));
+    }
+  });
+}
+
+function getOgInfo(url, callback) {
+  const appId = '588e83ad46cdcd0d00fd827e';
+  const requestUrl = 'https://opengraph.io/api/1.0/site/' + encodeURI(url) + '?app_id=' + appId;
+
+  return getJSON(requestUrl, function(json) {
+    callback(json);
+  });
+}
+
+export { getServerRequest, getOgInfo };

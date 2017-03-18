@@ -1,0 +1,83 @@
+.app-page {
+  .app-page-title { margin:  0; }
+  .app-page-content {}
+}
+
+.app-page--static {}
+.app-page--home {}
+.app-page--topic {}
+.app-page--sub-topic {}
+.app-page--search {}
+
+.app-section-wrapper {
+  .app-section {
+    .app-section-title {}
+    .app-section-content-wrapper {
+      .app-section-content {}
+      .app-section-content-list {
+        .app-section-content-item {}
+      }
+    }
+    .app-section-more-wrapper {
+      .app-section-more {}
+    }
+  }
+}
+
+.app-section--about {}
+.app-section--hero {}
+.app-section--news {
+  .app-section-content-list {
+    .app-section-content-item--article {
+      .article-container {
+        .article-thumbnail {}
+        .article-info {
+          .article-title {}
+          .article-source {}
+          .article-description {}
+        }
+      }
+    }
+  }
+}
+.app-section--topics {
+  .app-section-content-list {
+    .app-section-content-item--topic-image {}
+    .app-section-content--topic {
+      .topic-title {}
+      .topic-description {}
+      .topic-link {}
+    }
+  }
+}
+.app-section--sub-topic {
+  .app-section-content-item--topic {
+    .topic-text {}
+    .topic-title {}
+  }
+  .app-section-content-item--topic-media {}
+}
+.app-section--search-input {
+  .app-section-content-item--input {}
+  .app-section-content-item--tag-list {}
+}
+.app-section--search-results {
+  display: flex;
+  justify-content: space-between;
+
+  // TODO: Test whether this is used
+  // .search-results-pages,
+  // .search-results-media {
+  //   flex-basis: 49%;
+  // }
+  //
+  // .search-results-pages {
+  //   .theme-info {
+  //     min-height: 5rem;
+  //     background-position: center;
+  //     background-size: cover;
+  //     display: flex;
+  //   }
+  // }
+
+}

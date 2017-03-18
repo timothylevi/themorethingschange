@@ -1,10 +1,10 @@
 import React from 'react';
-import TopicsSection from '../Sections/TopicsSection.jsx';
+import { TopicsSection } from '../section';
 
 const TopicPage = React.createClass({
   render: function() {
     return (
-      <div className="app-page topic-page">
+      <div className="app-page app-page--topic">
         <TopicsSection
           topics={this.props.children}
           title={this.props.self.title}

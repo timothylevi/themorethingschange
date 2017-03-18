@@ -1,10 +1,7 @@
 import React from 'react';
-import { Link } from 'react-router';
 import { _ } from 'underscore';
-
-import AboutSection from '../Sections/AboutSection.jsx';
-import NewsSection from '../Sections/NewsSection.jsx';
-import TopicsSection from '../Sections/TopicsSection.jsx';
+import { HeroSection, AboutSection, NewsSection, TopicsSection } from '../section';
+import { VideoBackground } from '../background';
 
 const HomePage = React.createClass({
   render: function() {
@@ -13,11 +10,15 @@ const HomePage = React.createClass({
     const topicsData = _.where(this.props.children, { type: 'topic' });
 
     return (
-      <div className="app-page home-page">
-        { /* home page background */}
-        { aboutData ? React.createElement(AboutSection, aboutData) : null }
-        { newsData ? React.createElement(NewsSection, newsData) : null }
-        { topicsData.length ? React.createElement(TopicsSection, {topics: topicsData, title: "Topics" }) : null }
+      <div className="app-page app-page--home">
+        <div className="app-page-content">
+          <HeroSection>
+            <VideoBackground src={this.props.self.background} />
+          </HeroSection>
+          { aboutData ? React.createElement(AboutSection, aboutData) : null }
+          { newsData ? React.createElement(NewsSection, newsData) : null }
+          { topicsData.length ? React.createElement(TopicsSection, {topics: topicsData, title: "Topics" }) : null }
+        </div>
       </div>
     );
   }

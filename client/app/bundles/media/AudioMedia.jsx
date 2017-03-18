@@ -1,5 +1,5 @@
 import React from 'react';
-import MediaWrapper from '../MediaWrapper.jsx';
+import MediaWrapper from './MediaWrapper';
 
 const Audio = React.createClass({
   render: function() {
@@ -10,7 +10,7 @@ const Audio = React.createClass({
 
     return (
       <MediaWrapper type="audio" slug={this.props.slug} modalContent={modalContent} id={this.props.id}>
-        <h3 className="media-title">{this.props.title}</h3>
+        <h3 className="app-media-title">{this.props.title}</h3>
       </MediaWrapper>
     );
   }
