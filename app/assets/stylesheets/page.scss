@@ -10,52 +10,233 @@
 .app-page--search {}
 
 .app-section-wrapper {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+
   .app-section {
-    .app-section-title {}
+    width: 90%;
+    margin: auto;
+    padding: 2rem 1rem 4rem;
+    position: relative;
+
+    .app-section-title {
+      margin: 0;
+      text-align: center;
+    }
     .app-section-content-wrapper {
       .app-section-content {}
       .app-section-content-list {
+        padding: 0;
+        list-style-type: none;
+
         .app-section-content-item {}
       }
     }
     .app-section-more-wrapper {
-      .app-section-more {}
+      width: 100%;
+      text-align: center;
+      margin: 0;
+      margin-top: 1rem;
+      padding: 0 0 0 0;
+      pointer-events: none;
+
+      .app-section-more {
+        pointer-events: auto;
+        padding: 0.5rem 1rem;
+        color: inherit;
+        border: none;
+      }
     }
   }
 }
 
-.app-section--about {}
+.app-section--about {
+  .section-background-overlay {
+    background-color: darken($about-section-background-color, 20%);
+  }
+
+  .app-section {
+    color: white;
+
+    .app-section-content {
+      height: 200px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .app-section-more {
+      background-color: lighten($about-section-background-color, 25%);
+    }
+  }
+}
 .app-section--hero {}
 .app-section--news {
+  .section-background-overlay {
+    background-color: $news-section-background-color;
+  }
+
+  .section-background-view-button {
+    background-color: lighten($about-section-background-color, 20%);
+  }
+
+  .app-section-content-wrapper {
+    overflow: scroll;
+    max-height: 75vh;
+  }
+
+  .app-section {
+    color: white;
+  }
+
   .app-section-content-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    position: relative;
+
     .app-section-content-item--article {
+      flex-basis: 50%;
+
       .article-container {
-        .article-thumbnail {}
+        display: block;
+        padding: 1rem;
+        color: inherit;
+        background-color: transparent;
+        transition: background-color 250ms;
+        border-radius: 5px;
+
+        &:hover {
+          background-color: lighten($news-section-background-color, 50%);
+        }
+
+        .article-thumbnail {
+          float: left;
+          max-width: 25%;
+          margin-right: 2.5%;
+        }
         .article-info {
-          .article-title {}
-          .article-source {}
-          .article-description {}
+          margin-left: 27.5%;
+
+          .article-title {
+            font-size: 100%;
+            margin: 0;
+          }
+          .article-source { font-size: 50%; }
+          .article-description { margin: 0; }
         }
       }
     }
   }
 }
 .app-section--topics {
-  .app-section-content-list {
-    .app-section-content-item--topic-image {}
+  min-height: 75vh;
+
+  .topic-help-message-container {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+    .topic-help-message {
+      background-color: #888888;
+      color: white;
+      text-transform: uppercase;
+      width: 9rem;
+      font-size: 75%;
+      margin: auto;
+      padding: 0.25rem;
+      border-radius: 5px;
+    }
+  }
+
+  .app-section {
+    .app-section-title {
+      margin-bottom: 1rem;
+    }
+
+    .app-section-content-list {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+      margin: auto;
+      flex-wrap: wrap;
+
+      .app-section-content-item--topic-image {
+        width: 7.5rem;
+        height: 7.5rem;
+        margin: 0 0.5rem 1rem;
+        border-radius: 5px;
+        background-size: cover;
+      }
+    }
     .app-section-content--topic {
-      .topic-title {}
+      margin: 0 0.5rem;
+
+      .topic-title { margin: 0 }
       .topic-description {}
-      .topic-link {}
+      .topic-link {
+        color: #888888;
+        font-weight: bold;
+        font-size: 90%;
+        text-transform: uppercase;
+      }
     }
   }
 }
 .app-section--sub-topic {
-  .app-section-content-item--topic {
-    .topic-text {}
-    .topic-title {}
+  .app-section {
+
+    .app-section-content-wrapper {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 1rem 0;
+      padding: 1rem 0rem;
+
+      .app-section-content {
+        min-width: 15rem;
+        margin: 0 1%;
+
+        &.app-section-content-item--topic {
+          width: 57%;
+          margin-left: 0;
+
+          .topic-text {}
+          .topic-title {}
+        }
+        &.app-section-content-item--topic-media {
+          width: 35%;
+          position: relative;
+          height: 66vh;
+          overflow: hidden;
+          margin-right: 0;
+
+          .app-section-more-wrapper {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+            .app-section-more {
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              left: 0;
+              font-weight: bold;
+              font-size: 60%;
+              text-transform: uppercase;
+              color: #888888;
+              background: white;
+              text-align: left;
+              width: 100%;
+              padding: 0.5rem 0;
+            }
+          }
+        }
+      }
+    }
   }
-  .app-section-content-item--topic-media {}
 }
 .app-section--search-input {
   .app-section-content-item--input {}

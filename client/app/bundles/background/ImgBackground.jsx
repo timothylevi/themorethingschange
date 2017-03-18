@@ -26,7 +26,7 @@ const MapBackground = React.createClass({
         <div className={'section-background-overlay section-background-overlay-' + (this.state.viewMap ? 'hide' : 'show')}>
           {this.props.children}
         </div>
-        <div className="section-background-view-button">
+        <div className="section-background-view-button-container">
           <button className="section-background-view-button" onClick={this.handleToggleMap}>
             {this.state.viewMap ? 'Go Back' : 'View Map' }
           </button>

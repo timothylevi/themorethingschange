@@ -15,7 +15,7 @@ const SubtopicPage = React.createClass({
               <div className="app-section-content app-section-content-item--topic-media">
                 <MediaPanel media={this.props.children} />
                 <div className="app-section-more-wrapper">
-                  <button className="app-section-more">View Related Media!</button>
+                  <button className="app-section-more">Click here for more related media</button>
                 </div>
               </div>
             </div>

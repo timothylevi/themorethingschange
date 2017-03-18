@@ -5,13 +5,37 @@
     left: 0;
     right: 0;
     bottom: 0;
+    overflow: hidden;
   }
   .section-background-overlay {
-    &.section-background-overlay-hide {}
-    &.section-background-overlay-show {}
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    opacity: 1;
+    transition: opacity 500ms ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    .section-background-view {
-      .section-background-view-button {}
+    &.section-background-overlay-hide {
+      opacity: 0;
+      pointer-events: none;
+    }
+    &.section-background-overlay-show {}
+  }
+  .section-background-view-button-container {
+    position: absolute;
+    bottom: 2rem;
+    width: 100%;
+    text-align: center;
+
+    .section-background-view-button {
+      padding: 0.5rem 1rem;
+      font-size: 75%;
+      color: inherit;
+      border: none;
     }
   }
 }

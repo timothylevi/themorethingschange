@@ -3,26 +3,35 @@ const Masonry = require('react-masonry-component');
 
 import extractProperties from '../helpers/requests.js';
 import { baseUrl, masonryOptions } from '../helpers/constants.js';
-import { MediaImg, MediaMap, MediaPdf, MediaLink, MediaVideo, MediaAudio } from './index';
+import { ImgMedia, MapMedia, PdfMedia, LinkMedia, VideoMedia, AudioMedia } from './index';
 
 const MediaPanel = React.createClass({
   render: function() {
-    var mediaObjects = this.props.media.map(function(mediaData, index) {
-      const props = Object.assign({ key: index, id: index }, mediaData);
+    var mediaObjects = this.props.media.sort(function(a, b) {
+      switch(b.type) {
+        case 'photo':
+          return 1;
+        case a.type:
+          return 0;
+        default:
+          return -1;
+      }
 
+    }).map(function(mediaData, index) {
+      const props = Object.assign({ key: index, id: index }, mediaData);
       switch(mediaData.type) {
         case 'photo':
-          return <MediaImg {...props} />;
+          return <ImgMedia {...props} />;
         case 'map':
-          return <MediaMap {...props} />;
+          return <MapMedia {...props} />;
         case 'pdf':
-          return <MediaPdf {...props} />;
+          return <PdfMedia {...props} />;
         case 'video':
-          return <MediaVideo {...props} />;
+          return <VideoMedia {...props} />;
         case 'article':
-          return <MediaLink {...props} />;
+          return <LinkMedia {...props} />;
         case 'audio':
-          return <MediaAudio {...props} />;
+          return <AudioMedia {...props} />;
         default:
           return null;
       }

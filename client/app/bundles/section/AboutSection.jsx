@@ -5,18 +5,12 @@ const $ = require('jquery');
 const AboutSection = React.createClass({
   handleReadMore: function(event) {
     const buttonContainer$ = $('.app-section-more');
-    const wrapper$ = $('.app-page--about .app-section-content-wrapper');
-    const content$ = $('.app-section-content');
-    const sectionPadding = parseInt(wrapper$.parent().css('padding-top').replace('px', ''));
+    const content$ = $('.app-section--about .app-section-content');
 
     buttonContainer$.fadeOut(250);
-
-    wrapper$.css({
-      "height": wrapper$.height(),
-      "max-height": 'unset'
-    }).stop().animate({
-      "height": sectionPadding + content$.outerHeight()
-    });
+    content$.animate({
+      "height": "100vh"
+    }, 500);
 
     return false;
   },

@@ -4,9 +4,7 @@ const $ = require('jquery');
 
 const TopicsSection = React.createClass({
   getInitialState: function() {
-    return {
-      selectedTopic: this.props.topics[0]
-    };
+    return { selectedTopic: null };
   },
 
   selectTopic: function(index) {
@@ -16,6 +14,10 @@ const TopicsSection = React.createClass({
         selectedTopic: _this.props.topics[index]
       });
     }
+  },
+
+  deselectTopic: function() {
+    // this.setState({ selectedTopic: null });
   },
 
   render: function() {
@@ -31,7 +33,7 @@ const TopicsSection = React.createClass({
     const topicImages = this.props.topics.map(function(value, index) {
       return (
         <li
-          style={{backgroundImage: `url(\"${value.backgroundImage}\")`}}
+          style={{backgroundImage: `url(\"${value.background}\")`}}
           className="app-section-content-item app-section-content-item--topic-image"
           key={index}
           onMouseOver={_this.selectTopic(index)}
@@ -40,7 +42,12 @@ const TopicsSection = React.createClass({
     });
 
     return (
-      <div className="app-section-wrapper app-section--topics" id="topics">
+      <div className="app-section-wrapper app-section--topics" id="topics" onMouseOut={this.deselectTopic}>
+        <div className="topic-help-message-container">
+          <div className="topic-help-message">
+            Hover over a topic to learn more
+          </div>
+        </div>
         <div className="app-section">
           <h2 className="app-section-title">{this.props.title}</h2>
           <div className="app-section-content-wrapper">

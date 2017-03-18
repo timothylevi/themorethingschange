@@ -113,7 +113,6 @@ function getServerRequest(slug, callback) {
     url: `${baseUrl}/rdf/node/${slug}?format=json&rec=1&ref=1`,
     dataType: 'jsonp',
     success: function(json) {
-      debugger;
       callback(getData(json, slug));
     }
   });
