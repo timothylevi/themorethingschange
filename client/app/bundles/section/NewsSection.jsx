@@ -1,6 +1,6 @@
 import React from 'react';
 import { _ } from 'underscore';
-import MapBackground from '../background/MapBackground';
+import { Background } from '../background';
 import { getServerRequest, getOgInfo } from '../helpers/requests';
 
 const ArticleComponent = React.createClass({
@@ -57,7 +57,7 @@ const NewsSection = React.createClass({
 
     return (
       <div className="app-section-wrapper app-section--news">
-        <MapBackground section='news'>
+        <Background src={this.props.backgroundSrc} type={this.props.backgroundType}>
           <div className="app-section">
             <h2 className="app-section-title">{this.props.title}</h2>
             <div className="app-section-content-wrapper">
@@ -66,7 +66,7 @@ const NewsSection = React.createClass({
               </ul>
             </div>
           </div>
-        </MapBackground>
+        </Background>
       </div>
     );
   }

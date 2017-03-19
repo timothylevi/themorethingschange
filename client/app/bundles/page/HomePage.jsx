@@ -1,7 +1,7 @@
 import React from 'react';
 import { _ } from 'underscore';
 import { HeroSection, AboutSection, NewsSection, TopicsSection } from '../section';
-import { VideoBackground } from '../background';
+import { Background } from '../background';
 
 const HomePage = React.createClass({
   render: function() {
@@ -13,7 +13,7 @@ const HomePage = React.createClass({
       <div className="app-page app-page--home">
         <div className="app-page-content">
           <HeroSection>
-            <VideoBackground src={this.props.self.background} />
+            <Background src={this.props.self.backgroundSrc} type={this.props.self.backgroundType} />
           </HeroSection>
           { aboutData ? React.createElement(AboutSection, aboutData) : null }
           { newsData ? React.createElement(NewsSection, newsData) : null }

@@ -1,5 +1,5 @@
 import React from 'react';
-import MapBackground from '../background/MapBackground';
+import { Background } from '../background';
 const $ = require('jquery');
 
 const AboutSection = React.createClass({
@@ -18,7 +18,7 @@ const AboutSection = React.createClass({
   render: function() {
     return (
       <div className="app-section-wrapper app-section--about" id="about">
-        <MapBackground section="about">
+        <Background src={this.props.backgroundSrc} type={this.props.backgroundType}>
           <div className="app-section">
             <h2 className="app-section-title">{this.props.title}</h2>
             <div className="app-section-content-wrapper">
@@ -28,7 +28,7 @@ const AboutSection = React.createClass({
               <button className="app-section-more" onClick={this.handleReadMore}>Read More</button>
             </div>
           </div>
-        </MapBackground>
+        </Background>
       </div>
     );
   }

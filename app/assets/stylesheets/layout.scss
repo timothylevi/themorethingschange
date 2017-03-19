@@ -68,6 +68,7 @@
           display: inline-block;
           padding-bottom: 5px;
           border-bottom: 1px solid transparent;
+          transition: border-color 500ms;
 
           &:hover {
             cursor: pointer;
@@ -83,6 +84,17 @@
     position: relative;
     width: 100%;
 
-    .app-wrapper {}
+    .app-wrapper {
+      .app-page {
+        .app-page-title { margin:  0; }
+        .app-page-content {}
+      }
+
+      .app-page--static {}
+      .app-page--home {}
+      .app-page--topic {}
+      .app-page--sub-topic {}
+      .app-page--search {}
+    }
   }
 }

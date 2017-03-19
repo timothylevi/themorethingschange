@@ -6,16 +6,18 @@ const baseUrl = constants.baseUrl;
 
 function getProps(prop, data) {
   const propKeyMap = {
-    background: ['http://scalar.usc.edu/2012/01/scalar-ns#background', false,],
     description: ['http://purl.org/dc/terms/description',],
-    title: ['http://purl.org/dc/terms/title',],
     sort: ['http://purl.org/dc/terms/spatial', true, 0,],
-    format: ['http://purl.org/dc/terms/format',],
-    content: ['http://rdfs.org/sioc/ns#content',],
-    thumbnail: ['http://simile.mit.edu/2003/10/ontologies/artstor#thumbnail',],
-    mediaUrl: ['http://simile.mit.edu/2003/10/ontologies/artstor#url',],
-    medium: ['http://purl.org/dc/terms/medium',],
+    title: ['http://purl.org/dc/terms/title',],
     type: ['http://purl.org/dc/terms/type',],
+
+    background: ['http://scalar.usc.edu/2012/01/scalar-ns#background', false,],
+    content: ['http://rdfs.org/sioc/ns#content',],
+
+    backgroundSrc: ['http://simile.mit.edu/2003/10/ontologies/artstor#hasMediaFile'],
+    backgroundType: ['http://simile.mit.edu/2003/10/ontologies/artstor#mediafileFormat', true, 'photo'],
+    mediaUrl: ['http://simile.mit.edu/2003/10/ontologies/artstor#url',],
+    thumbnail: ['http://simile.mit.edu/2003/10/ontologies/artstor#thumbnail',],
   };
 
   const [key, versioned = true, def = ''] = propKeyMap[prop];
@@ -29,23 +31,26 @@ function getData(data, slug) {
   let state = { self: {}, children: [], loaded: true };
 
   for (var i = 0; i < dataKeys.length; i++) {
-    const dataKey = dataKeys[i];
-    const dataForKey = getDataForKey(data, dataKey);
+    const dataForKey = getDataForKey(data, dataKeys[i]);
 
     if (dataForKey) {
       const normalizedData = {
+        parentSlug: slug,
         slug: dataForKey.unversionedSlug,
         self: dataForKey.unversionedSlug === slug,
-        medium: getProps('medium', dataForKey),
-        title: getProps('title', dataForKey),
+
         description: getProps('description', dataForKey),
-        background: getProps('background', dataForKey),
-        thumbnail: getProps('thumbnail', dataForKey),
-        content: getProps('content', dataForKey),
-        url: getProps('mediaUrl', dataForKey),
         sort: getProps('sort', dataForKey),
+        title: getProps('title', dataForKey),
         type: getProps('type', dataForKey),
-        parentSlug: slug
+
+        background: getProps('background', dataForKey),
+        content: getProps('content', dataForKey),
+
+        backgroundSrc: getProps('backgroundSrc', dataForKey),
+        backgroundType: getProps('backgroundType', dataForKey),
+        thumbnail: getProps('thumbnail', dataForKey),
+        url: getProps('mediaUrl', dataForKey),
       };
 
       if (normalizedData.self) {
@@ -122,9 +127,7 @@ function getOgInfo(url, callback) {
   const appId = '588e83ad46cdcd0d00fd827e';
   const requestUrl = 'https://opengraph.io/api/1.0/site/' + encodeURI(url) + '?app_id=' + appId;
 
-  return getJSON(requestUrl, function(json) {
-    callback(json);
-  });
+  return getJSON(requestUrl, callback);
 }
 
 export { getServerRequest, getOgInfo };

@@ -1,39 +1,34 @@
 import React from 'react';
 
-const MapBackground = React.createClass({
+const ImgBackground = React.createClass({
   getInitialState: function() {
-    return { viewMap: false };
-  },
-
-  componentDidMount: function() {
+    return { viewBackground: false };
   },
 
   handleToggleMap: function() {
-    const viewMap = this.state.viewMap;
-    this.setState({ viewMap: ! viewMap });
+    const viewBackground = this.state.viewBackground;
+    this.setState({ viewBackground: !viewBackground });
   },
 
   render: function() {
     return (
-      <div className="section-background-wrapper section-background--map">
+      <div className="section-background-wrapper section-background--photo">
         <div className="section-background">
-          <iframe
-            className="section-iframe"
-            frameBorder="0"
-            src="https://www.google.com/maps/embed/v1/view?key=AIzaSyBQqebDAC1T_uNQChihpvqHQPB7OUj75n8&center=26.2006,92.9376&zoom=7" allowFullScreen>
-          </iframe>
+          <div className="section-background-source section-background-source--photo" style={{backgroundImage: `url('${this.props.src}')`}} />
         </div>
-        <div className={'section-background-overlay section-background-overlay-' + (this.state.viewMap ? 'hide' : 'show')}>
+        <div className={'section-background-overlay section-background-overlay-' + (this.state.viewBackground ? 'hide' : 'show')}>
           {this.props.children}
         </div>
-        <div className="section-background-view-button-container">
-          <button className="section-background-view-button" onClick={this.handleToggleMap}>
-            {this.state.viewMap ? 'Go Back' : 'View Map' }
-          </button>
-        </div>
+        {this.props.options.includes('view') ? (
+          <div className="section-background-view-button-container">
+            <button className="section-background-view-button" onClick={this.handleToggleViewBackground}>
+              {this.state.viewBackground ? 'Go Back' : 'View Photo' }
+            </button>
+          </div>
+        ) : null}
       </div>
     );
   }
 });
 
-export default MapBackground;
+export default ImgBackground;
