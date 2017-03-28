@@ -1,19 +1,19 @@
 // Global
 body {
-  display: flex;
-  justify-content: center;
   align-items: flex-start;
-  height: 100vh;
+  display: flex;
   font-family: 'Muli', sans-serif;
+  height: 100vh;
+  justify-content: center;
 }
 
 a {
-  color: $linkColor-normal;
+  color: $medium-dark-gray;
   text-decoration: none;
   transition: color 500ms;
 
-  &:visited { color: $linkColor-normal; }
-  &:hover { color: $linkColor-hover; }
+  &:visited { color: $medium-dark-gray; }
+  &:hover { color: $black; }
 }
 
 button {
@@ -26,8 +26,8 @@ h1, h2, h3 {
 }
 
 h1 {
-  font-weight: 700;
   font-size: 120%;
+  font-weight: 700;
 }
 
 h2 { font-size: 200%; }

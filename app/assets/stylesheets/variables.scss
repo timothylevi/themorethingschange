@@ -1,6 +1,52 @@
-// Links
-$linkColor-normal: #666666;
-$linkColor-hover: #000000;
-
+// Color
+$medium-dark-gray: #666666;
+$black: #000000;
 $about-section-background-color: rgba(51,102,51,0.78);
 $news-section-background-color: rgba(0,0,0,0.69);
+
+// Border
+$border-radius: 5px;
+
+// Z-Layers
+$top-layer: 100;
+$mid-layer:  10;
+$bot-layer:   1;
+
+// Patterns
+%SIZE_FULL {
+  width: 100%;
+  height: 100%;
+}
+
+%POSITION_ABSOLUTE_FILL {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+%POSITION_ABSOLUTE_TOP_LEFT {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+%POSITION_ABSOLUTE_RIGHT_LEFT {
+  position: absolute;
+  right: 0;
+  left: 0;
+}
+
+%POSITION_RELATIVE_TOP_RIGHT_LEFT {
+  position: relative;
+  top: 0;
+  right: 0;
+  left: 0;
+}
+
+%POSITION_RELATIVE_RIGHT_LEFT {
+  position: relative;
+  right: 0;
+  left: 0;
+}

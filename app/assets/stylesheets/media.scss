@@ -1,13 +1,13 @@
 .app-media-panel {
   .app-media-item-wrapper {
-    width: 100%;
-    margin: 1%;
     cursor: pointer;
+    margin: 1%;
+    width: 100%;
 
     .app-media-item {
-      width: 50%;
       float: left;
       margin-right: 1rem;
+      width: 50%;
     }
     .app-media-type {
       display: none;

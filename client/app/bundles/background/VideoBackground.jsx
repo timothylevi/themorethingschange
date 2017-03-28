@@ -29,20 +29,46 @@ const VideoBackground = React.createClass({
   },
 
   getVideoComponent: function() {
+    const FALSE = 0;
+    const TRUE = 1;
+    const NO_ANNOTATIONS = 3;
+
+    let params = {
+      loop: TRUE,
+      autoplay: TRUE,
+    }
     if (this.props.src.includes('vimeo')) {
+      params = {
+        ...params,
+        mute: TRUE,
+        title: FALSE,
+        byline: FALSE,
+        portrait: FALSE,
+        color: 'C9FF23',
+        player_id: "vimeo_player",
+      };
       return (
         <iframe
           id="vimeo_player"
           className="section-background-source section-background-source--ext-video"
-          src={`${this.props.src}?player_id=vimeo_player&mute=1&autoplay=1&loop=1&color=c9ff23&title=0&byline=0&portrait=0`}
+          src={`${this.props.src}?${$.param(params)}`}
         />
       );
     } else if (this.props.src.includes('youtube')) {
+      params = {
+        ...params,
+        enablejsapi: TRUE,
+        rel: FALSE,
+        showinfo: FALSE,
+        controls: FALSE,
+        iv_load_policy: NO_ANNOTATIONS,
+      };
       return (
         <iframe
           id="youtube_player"
           className="section-background-source section-background-source--ext-video"
-          src={`${this.props.src}?enablejsapi=1&iv_load_policy=3&rel=0&amp;controls=0&amp;showinfo=0&autoplay=1`}
+          src={`${this.props.src}?${$.param(params)}
+          `}
         />
       );
     }
