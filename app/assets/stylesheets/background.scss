@@ -1,26 +1,39 @@
 .section-background-wrapper {
   .section-background {
-    @extend %POSITION_ABSOLUTE_FILL;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+
     overflow: hidden;
-    pointer-events: none;
     z-index: $mid-layer;
 
     .section-background-source {
       z-index: $bot-layer;
 
       &.section-background-source--ext-video {
-        @extend %SIZE_FULL;
-        @extend %POSITION_ABSOLUTE_TOP_LEFT;
+        width: 100%;
+        height: 100%;
+
+        position: absolute;
+        top: 0;
+        left: 0;
+
         border: none;
       }
 
-      &.section-background-source--iframe { @extend %SIZE_FULL; }
+      &.section-background-source--iframe {
+        width: 100%;
+        height: 100%;
+      }
       &.section-background-source--video {
         min-width: 100%;
         transform: translate(-50%);
       }
       &.section-background-source--photo {
-        @extend %SIZE_FULL;
+        width: 100%;
+        height: 100%;
 
         background-position: center center;
         background-size: cover;
@@ -28,7 +41,11 @@
     }
   }
   .section-background-overlay {
-    @extend %POSITION_ABSOLUTE_FILL;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 
     align-items: center;
     display: flex;

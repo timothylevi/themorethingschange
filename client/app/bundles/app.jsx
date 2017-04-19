@@ -67,7 +67,8 @@ const PageRouter = React.createClass({
       'home': HomePage,
       'topic': TopicPage,
       'subtopic': SubtopicPage,
-      'static': StaticPage
+      'static': StaticPage,
+      'searcg': SearchPage
     };
     const type = this.state.self.type;
     const component = typePageMapping[type];

@@ -9,17 +9,6 @@ const SearchPage = React.createClass({
     return { results: [] };
   },
 
-  componentDidMount: function() {
-    const _this = this;
-    this.serverRequest = getServerRequest('tags', function(data) {
-      _this.setState({ page: data });
-    });
-  },
-
-  componentWillUnmount: function() {
-    this.serverRequest.abort();
-  },
-
   addResults: function(result, slug) {
     const results = _.uniq(this.state.results.concat(result.children), function(item) {
       return item.slug;
@@ -63,7 +52,7 @@ const SearchPage = React.createClass({
                   ref="tokenizer"
                   className="app-section-content-item app-section-content-item--input"
                   showOptionsWhenEmpty={true}
-                  options={this.state.page ? this.state.page.children : []}
+                  options={this.props.children}
                   onTokenAdd={function(token) {
                     _this.refs.tokenizer.refs.typeahead.setEntryText('');
                     _this.refs.tokenizer.refs.typeahead.setState({ showResults: true });
@@ -75,7 +64,7 @@ const SearchPage = React.createClass({
                   filterOption={function(input, option) {
                     if (_this.refs.tokenizer.getSelectedTokens().includes(option)) return false;
                     var filtered = fuzzy
-                      .filter(input, _.pluck(_this.state.page.children, "title"))
+                      .filter(input, _.pluck(_this.props.children, "title"))
                       .map(function(res) { return res.string; })
                       .includes(option.title);
                     return filtered;
@@ -83,7 +72,7 @@ const SearchPage = React.createClass({
                   displayOption="title"
                 />
                 <ul className="app-section-content-item app-section-content-item--tag-list">
-                  {this.state.page && this.state.page.children.map(function(tag, index) {
+                  {this.props.children.map(function(tag, index) {
                     if (tag.selected) return null;
                     return (
                       <li className="tag-item" key={tag.slug}

@@ -117,7 +117,7 @@
         background-color: transparent;
         border-radius: $border-radius;
         color: inherit;
-        display: flex;
+        display: block;
         padding: 1rem;
         transition: background-color 250ms;
 
@@ -126,10 +126,13 @@
         }
 
         .article-thumbnail {
+          float: left;
           margin-right: 2.5%;
           max-width: 25%;
         }
         .article-info {
+          margin-left: 27.5%;
+
           .article-title {
             font-size: 100%;
             margin: 0;

@@ -66,21 +66,21 @@ function getData(data, slug) {
 
     if (state.self.type === 'news' && element.type === 'article') return true;
 
-    if (state.self.type === 'tags') return true;
+    if (state.self.type === 'searcg') return true;
 
     if (state.self.type === 'tag') {
       if (element.type === 'tag') return false;
-      return element.type !== 'tags';
+      return element.type !== 'searcg';
     }
 
     if (state.self.type === 'topic') {
       if (element.type === 'home') state.parent = element;
-      return !(element.type === 'home' || element.type === 'tags');
+      return !(element.type === 'home' || element.type === 'searcg');
     }
 
     if (state.self.type === 'subtopic') {
       if (element.type === 'topic') state.parent = element;
-      return !(element.type === 'topic' || element.type === 'tags');
+      return !(element.type === 'topic' || element.type === 'searcg');
     }
   }
 
