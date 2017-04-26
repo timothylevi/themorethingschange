@@ -44,7 +44,7 @@ const SearchPage = React.createClass({
     return (
       <div className="app-page app-page--search">
         <h1 className="app-page-title">Keyword search</h1>
-        <div className="app-section-wrapper app-section--search-input">
+        <div className="app-section-wrapper app-section-wrapper-no-min-height app-section--search-input">
           <div className="app-section">
             <div className="app-section-content-wrapper">
               <div className="app-section-content">
@@ -88,7 +88,7 @@ const SearchPage = React.createClass({
             </div>
           </div>
         </div>
-        <div className="app-section-wrapper app-section--search-results">
+        <div className="app-section-wrapper app-section-wrapper-no-min-height app-section--search-results">
           <div className="app-section">
             <div className="app-section-content-wrapper">
               <div className="app-section-content">

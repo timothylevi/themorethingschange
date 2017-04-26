@@ -66,7 +66,10 @@ function getData(data, slug) {
 
     if (state.self.type === 'news' && element.type === 'article') return true;
 
-    if (state.self.type === 'searcg') return true;
+    if (state.self.type === 'searcg') {
+      if (element.type === 'subtopic') return false;
+      return true;
+    }
 
     if (state.self.type === 'tag') {
       if (element.type === 'tag') return false;

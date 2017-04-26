@@ -3,6 +3,10 @@
   overflow: hidden;
   position: relative;
 
+  &.app-section-wrapper-no-min-height {
+    min-height: unset;
+  }
+
   .app-section {
     margin: auto;
     padding: 2rem 1rem 4rem;
@@ -260,7 +264,26 @@
 }
 .app-section--search-input {
   .app-section-content-item--input {}
-  .app-section-content-item--tag-list {}
+  .app-section-content-item--tag-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+
+    .tag-item {
+      display: inline-block;
+      padding: 0.5rem;
+      background: green;
+      margin: 0.25rem 0.25rem 0.25rem 0;
+      border-radius: $border-radius;
+      color: white;
+      cursor: pointer;
+      transition: background 250ms;
+
+      &:hover {
+        background: darken(green, 10%);
+      }
+    }
+  }
 }
 .app-section--search-results {
   display: flex;
