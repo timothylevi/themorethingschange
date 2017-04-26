@@ -24,7 +24,7 @@ const App = React.createClass({
           <nav className="app-nav">
             <ul className="app-nav-link-list">
               <li className="app-nav-link-item"><Link className="app-nav-link" to="home#about">About</Link></li>
-              <li className="app-nav-link-item"><Link className="app-nav-link" to="./files/themorethingschange.pdf">Report</Link></li>
+              <li className="app-nav-link-item"><Link className="app-nav-link" to="./files/themorethingschange.pdf">The Report</Link></li>
               <li className="app-nav-link-item"><Link className="app-nav-link" to="home#topics">Topics</Link></li>
               <li className="app-nav-link-item"><Link className="app-nav-link" to="/who-we-are">Who We Are</Link></li>
               <li className="app-nav-link-item"><Link className="app-nav-link" to="/search">Keyword Search</Link></li>
