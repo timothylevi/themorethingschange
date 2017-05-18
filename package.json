@@ -11,8 +11,8 @@
     "rails-server": "echo 'visit http://localhost:3000/hello_world' && foreman start -f Procfile.dev",
     "test": "rspec"
   },
-  "devDependencies": {
-  },
+  "devDependencies": {},
   "dependencies": {
+    "fuse.js": "^3.0.1"
   }
 }
