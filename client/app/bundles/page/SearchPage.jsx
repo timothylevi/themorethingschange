@@ -143,7 +143,6 @@ const SearchPage = React.createClass({
                 <h3 className="search-result-group-title">{type}</h3>
                 <ul className="search-result-group">
                   {_.sortBy(value, 'title').map(function(tagged, index) {
-                    console.log(tagged);
                     const bg = tagged.type === 'photo' ? tagged.url : tagged.background;
                     return (
                       <li

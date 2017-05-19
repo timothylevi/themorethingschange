@@ -57,7 +57,7 @@ const NewsSection = React.createClass({
 
     return (
       <div className="app-section-wrapper app-section--news">
-        <Background src={this.props.backgroundSrc} type={this.props.backgroundType}>
+        <Background src={this.props.backgroundSrc} type={this.props.backgroundType} img={this.props.background}>
           <div className="app-section">
             <h2 className="app-section-title">{this.props.title}</h2>
             <div className="app-section-content-wrapper">
