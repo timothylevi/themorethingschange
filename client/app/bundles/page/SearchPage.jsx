@@ -1,8 +1,18 @@
 import React from 'react';
 import Fuse from 'fuse.js';
 import { _ } from 'underscore';
-import { Tokenizer } from 'react-typeahead';
 import { getServerRequest } from '../helpers/requests.js';
+
+const fuseOptions = {
+  threshold: 0.5,
+  location: 0,
+  distance: 100,
+  maxPatternLength: 32,
+  minMatchCharLength: 1,
+  keys: ["title"]
+};
+
+const defaultTagLimit = 5;
 
 const SearchPage = React.createClass({
   getInitialState: function() {
@@ -11,151 +21,157 @@ const SearchPage = React.createClass({
     return {
       results: [],
       tags: tags,
-      filtered: tags
+      tagLimit: defaultTagLimit,
+      searching: false
     };
   },
 
   getTags: function(tags) {
-    return _.sortBy(tags, 'title').map(function(item, index) {
-      item.index = index;
-      return item;
-    });
-  },
-
-  addResults: function(result, slug, index) {
-    const results = _.uniq(this.state.results.concat(result.children), function(item) {
-      return item.slug;
-    });
-    const tags = this.state.tags;
-    tags[index].selected = true;
-
-    this.setState({ results, tags });
-  },
-
-  removeResults: function(token) {
-    const results = this.state.results.filter(function(item) {
-      return item.parentSlug !== token.slug;
-    });
-    const tags = this.state.tags;
-    tags[token.index].selected = false;
-    this.setState({ results });
-  },
-
-  resetFilteredTags: function() {
-    this.setState({
-      filtered: this.getTags(this.props.children)
-    });
+    return _.sortBy(tags, 'title');
   },
 
   filterTags: function(event) {
-    const search = event.target.value;
+    const mask = event.target.value.trim();
 
-    if (!search.trim()) {
-      this.resetFilteredTags();
-      return;
-    }
+    if (!mask) return this.resetTags();
 
-    const options = {
-      threshold: 0.5,
-      location: 0,
-      distance: 100,
-      maxPatternLength: 32,
-      minMatchCharLength: 1,
-      keys: ["title"]
-    };
-
-    const fuse = new Fuse(this.state.tags, options); // "list" is the item array
-    const result = fuse.search(search);
-
-    this.setState({ filtered: this.getTags(result) });
+    const result = new Fuse(this.state.tags, fuseOptions).search(mask);
+    this.setState({ tags: this.getTags(result) });
   },
 
-  selectTag: function(event) {
-    if (!tag.selected) {
-      console.log('added');
-    } else {
-      console.log('remove me!');
+  setSearching: function(isSearching, tagLimit) {
+    const _this = this;
+    return function(event) {
+      _this.setState({
+        searching: isSearching,
+        tagLimit: tagLimit ? tagLimit : _this.state.tags.length
+      });
+    }
+  },
+
+  resetTags: function(event) {
+    this.searchInput.value = '';
+    this.searchInput.focus();
+    this.setState({ tags: this.getTags(this.props.children) });
+  },
+
+  showMoreTags: function(event) {
+    this.setState({ tagLimit: this.state.tags.length });
+  },
+
+  addResults: function(result, slug, index) {
+    const results = this.state.results.concat(result.children);
+
+    const tags = this.state.tags;
+    tags[index].selected = true;
+    this.setState({ results, tags });
+  },
+
+  removeResults: function(tag, index) {
+    const results = this.state.results.filter(function(item) {
+      return item.parentSlug !== tag.slug;
+    });
+
+    const tags = this.state.tags;
+    tags[index].selected = false;
+    this.setState({ results });
+  },
+
+  selectTag: function(index) {
+    const _this = this;
+
+    return function(event) {
+      let updated = _this.state.tags;
+      let tag = updated[index];
+      tag.selected = !tag.selected;
+
+      _this.setState({ tags: updated }, function() {
+        if (tag.selected) {
+          getServerRequest(tag.slug, function(data) {
+            _this.addResults(data, tag.slug, index);
+          });
+        } else {
+          _this.removeResults(tag, index);
+        }
+      });
     }
   },
 
   render: function() {
     const _this = this;
+    const tagSearchInput = (
+      <div>
+        <input
+          type="text"
+          onChange={this.filterTags}
+          onFocus={this.setSearching(true, null)}
+          onBlur={this.setSearching(false, defaultTagLimit)}
+          ref={(input) => { this.searchInput = input; }} />
+        <button onClick={this.resetTags}>&times;</button>
+      </div>
+    );
 
-    const resultComponents = _.chain(this.state.results)
-      .groupBy('type')
-      .map(function(value, type) {
+    const tagComponents = (
+      <ul className="app-section-content-item app-section-content-item--tag-list">
+        {this.state.tags.slice(0, this.state.tagLimit).map(function(tag, index) {
           return (
-          <li className="search-result-group" key={type}>
-            <h3 className="search-result-group-title">{type}</h3>
-            <ul>
-              {value.map(function(tagged, index) {
-                return <li className={`search-result search-result-${type}`} key={tagged.slug}>{tagged.title}</li>
-              })}
-            </ul>
-          </li>);
-      })
-      .value();
-
-    const tagComponents = this.state.filtered.map(function(tag, index) {
-      const style = {
-        backgroundColor: tag.selected ? 'red' : 'auto'
-      };
-      return (
-        <li className="tag-item" style={style} key={tag.slug}
-          onClick={_this.selectTag}>
-          {tag.title}
-        </li>
-      );
-    });
-
+            <li className="tag-item"
+              key={tag.slug}
+              style={{ backgroundColor: tag.selected ? 'red' : 'green' }}
+              onClick={_this.selectTag(index)}>
+              {tag.title}
+            </li>
+          );
+        })}
+        {((this.state.tags.length === this.state.tagLimit) || this.state.searching) ? '' : (
+          <li className="tag-item tag-item-more" onClick={_this.showMoreTags}>
+            See more
+          </li>
+        )}
+      </ul>
+    );
+    const resultComponents = (
+      <ul className="search-results">
+        {
+          _.chain(_.uniq(this.state.results, function(item) {
+            return item.slug;
+          }))
+          .groupBy('type')
+          .map(function(value, type) {
+              return (
+              <li className="search-result-group-container" key={type}>
+                <h3 className="search-result-group-title">{type}</h3>
+                <ul className="search-result-group">
+                  {_.sortBy(value, 'title').map(function(tagged, index) {
+                    console.log(tagged);
+                    const bg = tagged.type === 'photo' ? tagged.url : tagged.background;
+                    return (
+                      <li
+                        className={`search-result search-result-${type}`}
+                        key={tagged.slug}
+                        style={{backgroundImage: `url('${bg}')`}}>
+                        <h4 className="search-result-title">
+                          {tagged.title}
+                        </h4>
+                      </li>
+                    )
+                  })}
+                </ul>
+              </li>);
+          })
+          .value()
+        }
+      </ul>
+    );
     return (
       <div className="app-page app-page--search">
-        <h1 className="app-page-title">Keyword search</h1>
         <div className="app-section-wrapper app-section-wrapper-no-min-height app-section--search-input">
           <div className="app-section">
+            <h1 className="app-page-title">Keyword search</h1>
             <div className="app-section-content-wrapper">
               <div className="app-section-content">
-
-                {/**
-
-                  Search input, selecting tags from search, removing tags
-
-
-                  <Tokenizer
-                  ref="tokenizer"
-                  className="app-section-content-item app-section-content-item--input"
-                  showOptionsWhenEmpty={true}
-                  options={this.state.tags}
-                  onTokenAdd={function(token) {
-                    console.log(token)
-                    _this.refs.tokenizer.refs.typeahead.setEntryText('');
-                    _this.refs.tokenizer.refs.typeahead.setState({ showResults: true });
-                    getServerRequest(token.slug, function(data) {
-                      _this.addResults(data, token.slug, token.index);
-                    });
-                  }}
-                  onTokenRemove={_this.removeResults}
-                  filterOption={function(input, option) {
-                    if (_this.refs.tokenizer.getSelectedTokens().includes(option)) return false;
-                    var filtered = fuzzy
-                      .filter(input, _.pluck(_this.props.children, "title"))
-                      .map(function(res) { return res.string; })
-                      .includes(option.title);
-                    return filtered;
-                  }}
-                  displayOption="title"
-                />
-                **/}
-
-                <div>
-                  <input type="text" onChange={this.filterTags}></input>
-                  <button onClick={this.resetTags}>&times;</button>
-                </div>
-
-                <ul className="app-section-content-item app-section-content-item--tag-list">
-                  {tagComponents}
-                </ul>
-
+                {tagSearchInput}
+                {tagComponents}
               </div>
             </div>
           </div>
@@ -165,9 +181,7 @@ const SearchPage = React.createClass({
             <div className="app-section-content-wrapper">
               <div className="app-section-content">
                 <h2 className="search-results-title">Results</h2>
-                <ul className="search-results">
-                  {resultComponents}
-                </ul>
+                {resultComponents}
               </div>
             </div>
           </div>

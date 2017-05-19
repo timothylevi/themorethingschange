@@ -289,6 +289,46 @@
   display: flex;
   justify-content: space-between;
 
+  .app-section-content {
+    .search-results {
+      margin: 0;
+      padding: 0;
+      list-style-type: none;
+
+      .search-result-group-container {
+        .search-result-group-title {
+          text-transform: capitalize;
+        }
+        .search-result-group {
+          margin: 0;
+          padding: 0;
+          list-style-type: none;
+          display: flex;
+          flex-wrap: wrap;
+
+          .search-result {
+            flex-basis: 200px;
+            height: 100px;
+            background-size: cover;
+            color: white;
+            text-shadow: 1px 1px 4px black;
+            position: relative;
+            border-radius: $border-radius;
+            margin-right: 5px;
+            margin-bottom: 5px;
+
+            .search-result-title {
+              margin: 0;
+              position: absolute;
+              bottom: 2px;
+              left: 2px;
+            }
+          }
+        }
+      }
+    }
+  }
+
   // TODO: Test whether this is used
   // .search-results-pages,
   // .search-results-media {
