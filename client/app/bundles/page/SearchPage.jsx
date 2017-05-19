@@ -2,6 +2,7 @@ import React from 'react';
 import Fuse from 'fuse.js';
 import { _ } from 'underscore';
 import { getServerRequest } from '../helpers/requests.js';
+import { ImgMedia, MapMedia, PdfMedia, LinkMedia, VideoMedia, AudioMedia } from './index';
 
 const fuseOptions = {
   threshold: 0.5,
@@ -115,9 +116,8 @@ const SearchPage = React.createClass({
       <ul className="app-section-content-item app-section-content-item--tag-list">
         {this.state.tags.slice(0, this.state.tagLimit).map(function(tag, index) {
           return (
-            <li className="tag-item"
+            <li className={`tag-item ${tag.selected ? 'tag-item-selected' : ''}`}
               key={tag.slug}
-              style={{ backgroundColor: tag.selected ? 'red' : 'green' }}
               onClick={_this.selectTag(index)}>
               {tag.title}
             </li>
@@ -154,7 +154,26 @@ const SearchPage = React.createClass({
                         </h4>
                       </li>
                     )
-                  })}
+                  })/*.map(function(mediaData, index) {
+                    console.log(mediaData.type);
+                    const props = Object.assign({ key: index, id: index }, mediaData);
+                    switch(mediaData.type) {
+                      case 'photo':
+                        return <ImgMedia {...props} />;
+                      case 'map':
+                        return <MapMedia {...props} />;
+                      case 'pdf':
+                        return <PdfMedia {...props} />;
+                      case 'video':
+                        return <VideoMedia {...props} />;
+                      case 'article':
+                        return <LinkMedia {...props} />;
+                      case 'audio':
+                        return <AudioMedia {...props} />;
+                      default:
+                        return '';
+                    }
+                  })*/}
                 </ul>
               </li>);
           })

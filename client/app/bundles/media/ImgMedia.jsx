@@ -3,9 +3,13 @@ import MediaWrapper from './MediaWrapper';
 
 const Img = React.createClass({
   render: function() {
-    const modalContent = <div
-      className="modal-img"
-      style={{backgroundImage: `url('${this.props.url}')`}} />;
+    const modalContent = (
+    <div
+      className="modal-img">
+      <h3>{this.props.title}</h3>
+      <img style={{'width': '100%'}} src={this.props.url} />
+      <p>{this.props.description}</p>
+    </div>);
 
     return (
       <MediaWrapper type="img" slug={this.props.slug} modalContent={modalContent} id={this.props.id}>

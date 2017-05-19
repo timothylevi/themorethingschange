@@ -9,6 +9,8 @@ const MediaPanel = React.createClass({
   render: function() {
     var mediaObjects = this.props.media.sort(function(a, b) {
       switch(b.type) {
+        case 'story':
+          return 2;
         case 'photo':
           return 1;
         case a.type:
@@ -21,6 +23,8 @@ const MediaPanel = React.createClass({
       const props = Object.assign({ key: index, id: index }, mediaData);
       switch(mediaData.type) {
         case 'photo':
+          return <ImgMedia {...props} />;
+        case 'story':
           return <ImgMedia {...props} />;
         case 'map':
           return <MapMedia {...props} />;
