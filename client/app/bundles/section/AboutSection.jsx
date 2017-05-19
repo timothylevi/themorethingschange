@@ -9,8 +9,10 @@ const AboutSection = React.createClass({
 
     buttonContainer$.fadeOut(250);
     content$.animate({
-      "height": "100vh"
-    }, 500);
+      "height": "50vh"
+    }, 750, function() {
+      $(this).css({"overflow-y": "scroll" });
+    });
 
     return false;
   },

@@ -460,11 +460,11 @@ textarea {
 
 /* line 2, /Users/tim/workspace/tmtc/app/assets/stylesheets/global.scss */
 body {
+  align-items: flex-start;
   display: flex;
-  justify-content: center;
-  align-items: top;
-  height: 100vh;
   font-family: 'Muli', sans-serif;
+  height: 100vh;
+  justify-content: center;
 }
 
 /* line 10, /Users/tim/workspace/tmtc/app/assets/stylesheets/global.scss */
@@ -495,21 +495,22 @@ h1, h2, h3 {
 
 /* line 28, /Users/tim/workspace/tmtc/app/assets/stylesheets/global.scss */
 h1 {
-  font-weight: 700;
   font-size: 120%;
+  font-weight: 700;
 }
 
 /* line 33, /Users/tim/workspace/tmtc/app/assets/stylesheets/global.scss */
 h2 {
   font-size: 200%;
+  text-transform: uppercase;
 }
 
-/* line 34, /Users/tim/workspace/tmtc/app/assets/stylesheets/global.scss */
+/* line 37, /Users/tim/workspace/tmtc/app/assets/stylesheets/global.scss */
 h3 {
   font-size: 110%;
 }
 
-/* line 35, /Users/tim/workspace/tmtc/app/assets/stylesheets/global.scss */
+/* line 38, /Users/tim/workspace/tmtc/app/assets/stylesheets/global.scss */
 h2, h3 {
   font-weight: 600;
 }
@@ -518,270 +519,292 @@ h2, h3 {
 .app {
   position: absolute;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
 }
 /* line 8, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
 .app .app-header {
-  width: 90%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 3.5% 1rem 3%;
-  margin: auto;
   position: relative;
   top: 0;
-  left: 0;
   right: 0;
+  left: 0;
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+  padding: 1rem 3.5% 1rem 3%;
+  width: 90%;
 }
-/* line 23, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
+/* line 20, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
 .app .app-header .app-wordmarks {
   margin-left: 0.5rem;
 }
-/* line 27, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
+/* line 24, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
 .app .app-header .app-wordmarks .app-logo-link .app-logo {
-  width: 40%;
-  min-width: 100px;
   max-width: 350px;
+  min-width: 100px;
+  width: 40%;
 }
-/* line 33, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
+/* line 30, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
 .app .app-header .app-wordmarks .app-title {
-  margin: 0;
   font-size: 150%;
+  margin: 0;
 }
-/* line 42, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
+/* line 39, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
 .app .app-nav {
   align-self: flex-end;
 }
-/* line 45, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
+/* line 42, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
 .app .app-nav .app-nav-link-list {
+  list-style-type: none;
   margin: 0;
   padding: 0;
-  list-style-type: none;
   text-align: right;
 }
-/* line 51, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
+/* line 48, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
 .app .app-nav .app-nav-link-list .app-nav-link-item {
   display: inline-block;
-  margin: 0 0.25rem;
+  margin: 0 0.4rem;
   /**
     Uncomment the lines above and below to
     make dashes between navigation links.
   **/
 }
-/* line 67, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
+/* line 64, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
 .app .app-nav .app-nav-link-list .app-nav-link-item .app-nav-link {
+  border-bottom: 1px solid transparent;
   display: inline-block;
   padding-bottom: 5px;
-  border-bottom: 1px solid transparent;
+  transition: border-color 500ms;
 }
-/* line 72, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
+/* line 70, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
 .app .app-nav .app-nav-link-list .app-nav-link-item .app-nav-link:hover {
+  border-bottom: 1px solid green;
   cursor: pointer;
   text-decoration: none;
-  border-bottom: 1px solid green;
 }
-/* line 82, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
+/* line 80, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
 .app .app-wrapper-container {
   position: relative;
-  width: 100%;
+  right: 0;
+  left: 0;
 }
-
-/* line 2, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
-.app-page .app-page-title {
+/* line 87, /Users/tim/workspace/tmtc/app/assets/stylesheets/layout.scss */
+.app .app-wrapper-container .app-wrapper .app-page .app-page-title {
   margin: 0;
 }
 
-/* line 12, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 1, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section-wrapper {
-  position: relative;
   min-height: 100vh;
   overflow: hidden;
+  position: relative;
 }
-/* line 17, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 6, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section-wrapper.app-section-wrapper-no-min-height {
+  min-height: unset;
+}
+/* line 10, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section-wrapper .app-section {
-  width: 90%;
   margin: auto;
   padding: 2rem 1rem 4rem;
   position: relative;
+  width: 90%;
 }
-/* line 23, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 16, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section-wrapper .app-section .app-section-title {
   margin: 0;
   text-align: center;
 }
-/* line 29, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 22, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section-wrapper .app-section .app-section-content-wrapper .app-section-content-list {
-  padding: 0;
   list-style-type: none;
+  padding: 0;
 }
-/* line 36, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 29, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section-wrapper .app-section .app-section-more-wrapper {
-  width: 100%;
-  text-align: center;
   margin: 0;
   margin-top: 1rem;
   padding: 0 0 0 0;
   pointer-events: none;
+  text-align: center;
+  width: 100%;
 }
-/* line 44, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 37, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section-wrapper .app-section .app-section-more-wrapper .app-section-more {
-  pointer-events: auto;
-  padding: 0.5rem 1rem;
   color: inherit;
   border: none;
   border-radius: 5px;
+  padding: 0.5rem 1rem;
+  pointer-events: auto;
 }
 
-/* line 56, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 49, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--about .section-background-overlay {
-  background-color: rgba(17, 34, 17, 0.78);
+  background-color: rgba(49, 80, 49, 0.78);
 }
-/* line 60, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 53, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--about .section-background-view-button-container {
   color: white;
 }
-/* line 62, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 55, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--about .section-background-view-button-container .section-background-view-button {
-  background-color: rgba(9, 17, 9, 0.78);
+  background-color: rgba(39, 65, 39, 0.78);
 }
-/* line 67, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 60, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--about .app-section {
   color: white;
 }
-/* line 70, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 63, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--about .app-section .app-section-content {
   height: 200px;
   overflow: hidden;
   position: relative;
 }
-/* line 76, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 69, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--about .app-section .app-section-more {
-  background-color: rgba(102, 179, 102, 0.78);
+  background-color: rgba(161, 198, 161, 0.78);
 }
 
-/* line 83, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 74, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--hero {
+  min-height: unset;
+}
+/* line 78, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--hero .section-background-wrapper .section-background {
+  height: auto;
+  max-width: 100%;
+  overflow: hidden;
+  padding-bottom: 56.25%;
+  position: relative;
+}
+
+/* line 89, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .section-background-overlay {
   background-color: rgba(0, 0, 0, 0.69);
 }
-/* line 87, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 93, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .section-background-view-button-container {
   color: white;
 }
-/* line 89, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 96, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .section-background-view-button-container .section-background-view-button {
-  background-color: rgba(85, 170, 85, 0.78);
+  background-color: rgba(145, 188, 145, 0.78);
 }
-/* line 94, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 101, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section-content-wrapper {
-  overflow: scroll;
   max-height: 75vh;
+  overflow: scroll;
 }
-/* line 99, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 106, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section {
   color: white;
 }
-/* line 103, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 110, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section-content-list {
-  display: flex;
-  justify-content: space-between;
   align-items: flex-start;
+  display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   position: relative;
 }
-/* line 110, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 117, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section-content-list .app-section-content-item--article {
-  flex-basis: 50%;
+  max-width: 50%;
 }
-/* line 113, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 120, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section-content-list .app-section-content-item--article .article-container {
+  background-color: transparent;
+  border-radius: 5px;
+  color: inherit;
   display: block;
   padding: 1rem;
-  color: inherit;
-  background-color: transparent;
   transition: background-color 250ms;
-  border-radius: 5px;
 }
-/* line 121, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 128, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section-content-list .app-section-content-item--article .article-container:hover {
   background-color: rgba(128, 128, 128, 0.69);
 }
-/* line 125, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 132, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section-content-list .app-section-content-item--article .article-container .article-thumbnail {
   float: left;
-  max-width: 25%;
   margin-right: 2.5%;
+  max-width: 25%;
 }
-/* line 130, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 137, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section-content-list .app-section-content-item--article .article-container .article-info {
   margin-left: 27.5%;
 }
-/* line 133, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 140, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section-content-list .app-section-content-item--article .article-container .article-info .article-title {
   font-size: 100%;
   margin: 0;
 }
-/* line 137, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 144, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section-content-list .app-section-content-item--article .article-container .article-info .article-source {
   font-size: 50%;
 }
-/* line 138, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 145, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--news .app-section-content-list .app-section-content-item--article .article-container .article-info .article-description {
   margin: 0;
 }
 
-/* line 144, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 151, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--topics {
-  min-height: 75vh;
+  min-height: 80vh;
 }
-/* line 147, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 154, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--topics .app-section {
+  padding-bottom: 6rem;
+}
+/* line 157, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--topics .topic-help-message-container {
-  position: absolute;
   bottom: 2rem;
-  width: 100%;
+  position: absolute;
   text-align: center;
+  width: 100%;
 }
-/* line 152, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 163, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--topics .topic-help-message-container .topic-help-message {
   background-color: #888888;
+  border-radius: 5px;
   color: white;
-  text-transform: uppercase;
-  width: 9rem;
   font-size: 75%;
   margin: auto;
   padding: 0.25rem;
-  border-radius: 5px;
+  text-transform: uppercase;
+  width: 9rem;
 }
-/* line 165, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 176, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--topics .app-section .app-section-title {
   margin-bottom: 1rem;
 }
-/* line 169, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 180, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--topics .app-section .app-section-content-list {
   display: flex;
-  justify-content: center;
-  width: 100%;
-  margin: auto;
   flex-wrap: wrap;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
 }
-/* line 176, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 187, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--topics .app-section .app-section-content-list .app-section-content-item--topic-image {
-  width: 7.5rem;
-  height: 7.5rem;
-  margin: 0 0.5rem 1rem;
-  border-radius: 5px;
   background-size: cover;
+  border-radius: 5px;
+  height: 6rem;
+  margin: 0 0.5rem 1rem;
+  width: 7.8rem;
 }
-/* line 184, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 195, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--topics .app-section .app-section-content--topic {
-  margin: 0 0.5rem;
+  margin: 1rem 0.5rem;
 }
-/* line 187, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 198, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--topics .app-section .app-section-content--topic .topic-title {
   margin: 0;
 }
-/* line 189, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 200, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--topics .app-section .app-section-content--topic .topic-link {
   color: #888888;
   font-weight: bold;
@@ -789,130 +812,218 @@ h2, h3 {
   text-transform: uppercase;
 }
 
-/* line 198, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 209, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--sub-topic {
   min-height: unset;
 }
-/* line 202, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 213, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--sub-topic .app-section .app-section-content-wrapper {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
-  width: 100%;
+  justify-content: space-between;
   margin: 1rem 0;
   padding: 1rem 0rem;
+  width: 100%;
 }
-/* line 210, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 221, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--sub-topic .app-section .app-section-content-wrapper .app-section-content {
-  min-width: 15rem;
-  margin: 0 1%;
   flex-grow: 1;
+  margin: 0 1%;
+  min-width: 15rem;
 }
-/* line 214, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 226, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--sub-topic .app-section .app-section-content-wrapper .app-section-content:empty {
   display: none;
 }
-/* line 216, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 228, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--sub-topic .app-section .app-section-content-wrapper .app-section-content.app-section-content-item--topic {
   flex-basis: 57%;
   margin-left: 0;
 }
-/* line 223, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 235, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--sub-topic .app-section .app-section-content-wrapper .app-section-content.app-section-content-item--topic-media {
   flex-basis: 35%;
-  position: relative;
   height: 66vh;
-  overflow: hidden;
   margin-right: 0;
+  overflow: hidden;
+  position: relative;
 }
-/* line 230, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 242, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--sub-topic .app-section .app-section-content-wrapper .app-section-content.app-section-content-item--topic-media .app-section-more-wrapper {
-  position: absolute;
   bottom: 0;
+  position: absolute;
   right: 0;
 }
-/* line 235, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 247, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--sub-topic .app-section .app-section-content-wrapper .app-section-content.app-section-content-item--topic-media .app-section-more-wrapper .app-section-more {
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  font-weight: bold;
-  font-size: 60%;
-  text-transform: uppercase;
-  color: #888888;
   background: white;
+  bottom: 0;
+  color: #888888;
+  font-size: 60%;
+  font-weight: bold;
+  left: 0;
+  padding: 0.5rem 0;
+  position: absolute;
+  right: 0;
+  text-transform: uppercase;
   text-align: left;
   width: 100%;
-  padding: 0.5rem 0;
 }
 
-/* line 259, /Users/tim/workspace/tmtc/app/assets/stylesheets/page.scss */
+/* line 269, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--search-input .app-section-content-item--tag-list {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+/* line 274, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--search-input .app-section-content-item--tag-list .tag-item {
+  display: inline-block;
+  padding: 0.5rem;
+  background: green;
+  margin: 0.25rem 0.25rem 0.25rem 0;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  transition: background 250ms;
+}
+/* line 284, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--search-input .app-section-content-item--tag-list .tag-item:hover {
+  background: #004d00;
+}
+
+/* line 290, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
 .app-section--search-results {
   display: flex;
   justify-content: space-between;
+}
+/* line 295, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--search-results .app-section-content .search-results {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+/* line 301, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--search-results .app-section-content .search-results .search-result-group-container .search-result-group-title {
+  text-transform: capitalize;
+}
+/* line 304, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--search-results .app-section-content .search-results .search-result-group-container .search-result-group {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+/* line 311, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--search-results .app-section-content .search-results .search-result-group-container .search-result-group .search-result {
+  flex-basis: 200px;
+  height: 100px;
+  background-size: cover;
+  color: white;
+  text-shadow: 1px 1px 4px black;
+  position: relative;
+  border-radius: 5px;
+  margin-right: 5px;
+  margin-bottom: 5px;
+}
+/* line 322, /Users/tim/workspace/tmtc/app/assets/stylesheets/section.scss */
+.app-section--search-results .app-section-content .search-results .search-result-group-container .search-result-group .search-result .search-result-title {
+  margin: 0;
+  position: absolute;
+  bottom: 2px;
+  left: 2px;
 }
 
 /* line 2, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
 .section-background-wrapper .section-background {
   position: absolute;
   top: 0;
-  left: 0;
   right: 0;
   bottom: 0;
+  left: 0;
   overflow: hidden;
+  z-index: 10;
 }
-/* line 10, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
+/* line 12, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
+.section-background-wrapper .section-background .section-background-source {
+  z-index: 1;
+}
+/* line 15, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
+.section-background-wrapper .section-background .section-background-source.section-background-source--ext-video {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border: none;
+}
+/* line 26, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
+.section-background-wrapper .section-background .section-background-source.section-background-source--iframe {
+  width: 100%;
+  height: 100%;
+}
+/* line 30, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
+.section-background-wrapper .section-background .section-background-source.section-background-source--video {
+  min-width: 100%;
+  transform: translate(-50%);
+}
+/* line 34, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
+.section-background-wrapper .section-background .section-background-source.section-background-source--photo {
+  width: 100%;
+  height: 100%;
+  background-position: center center;
+  background-size: cover;
+}
+/* line 43, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
 .section-background-wrapper .section-background-overlay {
   position: absolute;
   top: 0;
-  bottom: 0;
   right: 0;
+  bottom: 0;
   left: 0;
+  align-items: center;
+  display: flex;
+  justify-content: center;
   opacity: 1;
   transition: opacity 500ms ease-in-out;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  z-index: 100;
 }
-/* line 22, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
+/* line 57, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
 .section-background-wrapper .section-background-overlay.section-background-overlay-hide {
   opacity: 0;
   pointer-events: none;
 }
-/* line 28, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
+/* line 63, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
 .section-background-wrapper .section-background-view-button-container {
   position: absolute;
+  right: 0;
+  left: 0;
   bottom: 2rem;
-  width: 100%;
   text-align: center;
+  width: 100%;
+  z-index: 100;
 }
-/* line 34, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
+/* line 72, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
 .section-background-wrapper .section-background-view-button-container .section-background-view-button {
-  padding: 0.5rem 1rem;
-  font-size: 75%;
-  color: inherit;
   border: none;
   border-radius: 5px;
-}
-
-/* line 45, /Users/tim/workspace/tmtc/app/assets/stylesheets/background.scss */
-.section-background--map .section-iframe {
-  width: 100%;
-  height: 100%;
+  color: inherit;
+  font-size: 75%;
+  padding: 0.5rem 1rem;
 }
 
 /* line 2, /Users/tim/workspace/tmtc/app/assets/stylesheets/media.scss */
 .app-media-panel .app-media-item-wrapper {
-  width: 100%;
-  margin: 1%;
   cursor: pointer;
+  margin: 1%;
+  width: 100%;
 }
 /* line 7, /Users/tim/workspace/tmtc/app/assets/stylesheets/media.scss */
 .app-media-panel .app-media-item-wrapper .app-media-item {
-  width: 50%;
   float: left;
   margin-right: 1rem;
+  width: 50%;
 }
 /* line 12, /Users/tim/workspace/tmtc/app/assets/stylesheets/media.scss */
 .app-media-panel .app-media-item-wrapper .app-media-type {

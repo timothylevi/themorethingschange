@@ -149,6 +149,8 @@
   }
 }
 .app-section--topics {
+  min-height: 80vh;
+
   .app-section {
     padding-bottom: 6rem;
   }
@@ -185,9 +187,9 @@
       .app-section-content-item--topic-image {
         background-size: cover;
         border-radius: $border-radius;
-        height: 7.5rem;
+        height: 6rem;
         margin: 0 0.5rem 1rem;
-        width: 7.5rem;
+        width: 7.8rem;
       }
     }
     .app-section-content--topic {
