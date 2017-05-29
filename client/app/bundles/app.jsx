@@ -6,6 +6,19 @@ import { getServerRequest } from './helpers/requests.js';
 import { HomePage, TopicPage, SubtopicPage, SearchPage, StaticPage } from './page';
 
 const App = React.createClass({
+  componentDidMount: function(props) {
+    debugger;
+    if (this.props.location.hash) {
+      document.getElementById(this.props.location.hash.slice(1)).scrollIntoView();
+    }
+  },
+  componentDidUpdate: function(prevProps) {
+    if (this.props.location.hash) {
+      document.getElementById(this.props.location.hash.slice(1)).scrollIntoView();
+    } else if (this.props.location !== prevProps.location) {
+      window.scrollTo(0, 0)
+    }
+  },
   // This class is the static layout of the page which includes the header and body.
   // This class takes children from the `PageRouter` class through React Router below.
   render: function() {
@@ -24,10 +37,15 @@ const App = React.createClass({
           <nav className="app-nav">
             <ul className="app-nav-link-list">
               <li className="app-nav-link-item"><Link className="app-nav-link" to="home#about">About</Link></li>
-              <li className="app-nav-link-item"><Link className="app-nav-link" to="./files/themorethingschange.pdf">The Report</Link></li>
               <li className="app-nav-link-item"><Link className="app-nav-link" to="home#topics">Topics</Link></li>
+              <li className="app-nav-link-item"><Link className="app-nav-link" to="/stories">Stories</Link></li>
+              <li className="app-nav-link-item"><Link className="app-nav-link" to="/documents">Documents</Link></li>
               <li className="app-nav-link-item"><Link className="app-nav-link" to="/who-we-are">Who We Are</Link></li>
+              <li className="app-nav-link-item"><Link className="app-nav-link" to="/search">Search</Link></li>
+{/*
+              <li className="app-nav-link-item"><Link className="app-nav-link" to="./files/themorethingschange.pdf">The Report</Link></li>
               <li className="app-nav-link-item"><Link className="app-nav-link" to="/search">Keyword Search</Link></li>
+*/}
             </ul>
           </nav>
         </header>
@@ -100,6 +118,11 @@ export default React.createClass({
       <Router
         history={browserHistory}
         onUpdate={hashLinkScroll}
+        onChange={(prevState, nextState) => {
+          if (nextState.location.action !== "POP") {
+            window.scrollTo(0, 0);
+          }
+        }}
         >
         <Route path="/" component={App}>
           <IndexRedirect to='/home' />

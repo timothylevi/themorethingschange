@@ -149,7 +149,7 @@
   }
 }
 .app-section--topics {
-  min-height: 80vh;
+  min-height: 70vh;
 
   .app-section {
     padding-bottom: 6rem;
@@ -226,7 +226,7 @@
         &:empty { display: none; }
 
         &.app-section-content-item--topic {
-          flex-basis: 57%;
+          flex-basis: 45%;
           margin-left: 0;
 
           .topic-text {}
@@ -236,29 +236,8 @@
           flex-basis: 35%;
           height: 66vh;
           margin-right: 0;
-          overflow: hidden;
+          overflow: scroll;
           position: relative;
-
-          .app-section-more-wrapper {
-            bottom: 0;
-            position: absolute;
-            right: 0;
-
-            .app-section-more {
-              background: white;
-              bottom: 0;
-              color: #888888;
-              font-size: 60%;
-              font-weight: bold;
-              left: 0;
-              padding: 0.5rem 0;
-              position: absolute;
-              right: 0;
-              text-transform: uppercase;
-              text-align: left;
-              width: 100%;
-            }
-          }
         }
       }
     }

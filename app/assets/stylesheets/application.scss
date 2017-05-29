@@ -22,34 +22,54 @@
 @import 'media';
 
 // Lib
-.ReactModalPortal { z-index: 100; }
- .media-wrapper {
-   .media-type {
-     position: absolute;
-     bottom: 15px;
-     left: -2px;
-     background-color: rgba(0, 0, 0, 0.5);
-     color: white;
-     display: flex;
-     align-items: center;
-     z-index: 10;
-     padding: 5px 7.5px;
-     font-size: 80%;
-     text-align: left;
-     display: none;
-   }
-   .media-map { border: 0; }
+.ReactModalPortal {
+  z-index: 100;
+  .ReactModal__Overlay {
+    background: darken($about-section-background-color, 0.5) !important;
+  }
+
+  .ReactModal__Content {
+    border: 1rem solid white !important;
+    padding: 0 !important;
+  }
+}
+.media-wrapper {
+ .media-type {
+   position: absolute;
+   bottom: 15px;
+   left: -2px;
+   background-color: rgba(0, 0, 0, 0.5);
+   color: white;
+   display: flex;
+   align-items: center;
+   z-index: 10;
+   padding: 5px 7.5px;
+   font-size: 80%;
+   text-align: left;
+   display: none;
  }
+ .media-map { border: 0; }
+}
 
  .modal-img {
    background-size: contain;
    background-position: center;
    background-repeat: no-repeat;
    position: absolute;
-   top: 1rem;
-   right: 1rem;
-   bottom: 1rem;
-   left: 1rem;
+   top: 0;
+   bottom: 0;
+   left: 0;
+   right: 0;
+   text-align: center;
+
+   h3 {
+     margin-top: 0;
+     margin-bottom: 1rem;
+   }
+
+   img {
+     max-width: 50%;
+   }
  }
 
  .modal-map,
