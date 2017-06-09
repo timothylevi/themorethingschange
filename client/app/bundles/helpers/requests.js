@@ -13,11 +13,12 @@ function getProps(prop, data) {
 
     background: ['http://scalar.usc.edu/2012/01/scalar-ns#background', false,],
     content: ['http://rdfs.org/sioc/ns#content',],
+    credit: ['http://ns.exiftool.ca/IPTC/IPTC/1.0/Credit', true],
 
     backgroundSrc: ['http://simile.mit.edu/2003/10/ontologies/artstor#hasMediaFile'],
     backgroundType: ['http://simile.mit.edu/2003/10/ontologies/artstor#mediafileFormat', true, 'photo'],
     mediaUrl: ['http://simile.mit.edu/2003/10/ontologies/artstor#url',],
-    thumbnail: ['http://simile.mit.edu/2003/10/ontologies/artstor#thumbnail',],
+    thumbnail: ['http://simile.mit.edu/2003/10/ontologies/artstor#thumbnail', false],
   };
 
   const [key, versioned = true, def = ''] = propKeyMap[prop];
@@ -46,6 +47,7 @@ function getData(data, slug) {
 
         background: getProps('background', dataForKey),
         content: getProps('content', dataForKey),
+        credit: getProps('credit', dataForKey),
 
         backgroundSrc: getProps('backgroundSrc', dataForKey),
         backgroundType: getProps('backgroundType', dataForKey),
@@ -127,7 +129,7 @@ function getServerRequest(slug, callback) {
 }
 
 function getOgInfo(url, callback) {
-  const appId = '588e83ad46cdcd0d00fd827e';
+  const appId = '593a3a87b8f7370d00beedf1';
   const requestUrl = 'https://opengraph.io/api/1.0/site/' + encodeURI(url) + '?app_id=' + appId;
 
   return getJSON(requestUrl, callback);

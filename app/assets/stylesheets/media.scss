@@ -1,35 +1,164 @@
-.app-media-panel {
-  .app-media-item-wrapper {
-    cursor: pointer;
-    margin: 1%;
-    width: 100%;
-
-    .app-media-item {
-      float: left;
-      margin-right: 1rem;
-      width: 50%;
-    }
-    .app-media-type {
-      display: none;
-    }
-    .app-media-title {
-      margin: 0;
-    }
-    .app-media-description {}
-  }
-
-  .app-media-item-wrapper--img {
-    .app-media-item {}
-    .app-media-title {}
-    .app-media-description {}
-  }
-  .app-media-item-wrapper--map {
-    .app-media-item {}
-  }
-  .app-media-item-wrapper--pdf {}
-  .app-media-item-wrapper--video {}
-  .app-media-item-wrapper--article {}
-  .app-media-item-wrapper--audio {}
+.app-media {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 
-// TODO: Modals
+.media-item-wrapper {
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  position: relative;
+
+  &:hover { cursor: pointer; }
+  &.media-item-wrapper--photo-text {
+    width: 100%;
+    display: flex;
+
+    .media-image-wrapper {
+      flex-basis: 40%;
+      margin-right: 0.5rem;
+      .media-image { width: 100%; }
+    }
+
+    .media-info {
+      flex-basis: 60%;
+
+      .media-title {
+        margin: 0;
+      }
+      .media-description {
+        margin: 0.75rem 0 0 0;
+        position: relative;
+        overflow: hidden;
+
+        &:after {
+          content: "";
+          text-align: right;
+          position: absolute;
+          bottom: 0;
+          right: 0;
+          width: 75%;
+          height: 1.2em;
+          background: linear-gradient(to right, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1) 75%);
+        }
+      }
+    }
+  }
+
+  &.media-item-wrapper--photo {
+    width: 30%;
+
+    .media-image {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.media-item-wrapper--video {
+    width: 100%;
+    // width: 30%;
+
+    .media-video-thumbnail {
+      width: 100%;
+    }
+  }
+  &.media-item-wrapper--article {
+    .article-container {
+      background-color: transparent;
+      border-radius: $border-radius;
+      color: inherit;
+      display: flex;
+      transition: background-color 250ms;
+
+      .article-thumbnail {
+        width: 40%;
+        height: 100%;
+        margin-right: 2.5%;
+      }
+      .article-info {
+        display: flex;
+        flex-wrap: wrap;
+
+        .article-title {
+          font-size: 100%;
+          margin: 0;
+        }
+        .article-source {
+          font-size: 50%;
+        }
+        .article-description {
+          margin: 0.25rem 0 0 0;
+        }
+      }
+    }
+  }
+  &.media-item-wrapper--audio {}
+  &.media-item-wrapper--map {}
+  &.media-item-wrapper--pdf {}
+  &.media-item-wrapper--tag {}
+
+  .media-item-type {
+    position: absolute;
+    left: 0rem;
+    top: 0rem;
+    right: 0rem;
+    bottom: 0rem;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 500ms;
+
+    &:hover {
+      background: darken($about-section-background-color, 0.5);
+      opacity: 1;
+    }
+  }
+}
+
+// .app-media-panel {
+//   .app-media-item-wrapper {
+//     cursor: pointer;
+//     margin: 1%;
+//     width: 100%;
+//
+//     .app-media-item {
+//       float: left;
+//       margin-right: 1rem;
+//       width: 50%;
+//     }
+//     .app-media-type {
+//       display: none;
+//     }
+//     .app-media-title {
+//       margin: 0;
+//     }
+//     .app-media-description {
+//       overflow: hidden;
+//       text-overflow: ellipsis;
+//       white-space: nowrap;
+//     }
+//   }
+//
+//   .media--image {
+//
+//   }
+//   .media--image-with-text {}
+//
+//   .app-media-item-wrapper--img {
+//     width: 30%;
+//     .app-media-item {}
+//     .app-media-title {}
+//     .app-media-description {}
+//   }
+//   .app-media-item-wrapper--map {
+//     .app-media-item {}
+//   }
+//   .app-media-item-wrapper--pdf {}
+//   .app-media-item-wrapper--video {}
+//   .app-media-item-wrapper--article {}
+//   .app-media-item-wrapper--audio {}
+// }
+//
+// // TODO: Modals

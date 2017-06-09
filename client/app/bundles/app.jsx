@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDom from 'react-dom';
 import { Link } from 'react-router';
 import { Router, Route, IndexRedirect, browserHistory } from 'react-router';
 
@@ -7,7 +8,6 @@ import { HomePage, TopicPage, SubtopicPage, SearchPage, StaticPage } from './pag
 
 const App = React.createClass({
   componentDidMount: function(props) {
-    debugger;
     if (this.props.location.hash) {
       document.getElementById(this.props.location.hash.slice(1)).scrollIntoView();
     }

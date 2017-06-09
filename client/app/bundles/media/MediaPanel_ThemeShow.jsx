@@ -1,51 +1,61 @@
 import React from 'react';
-const Masonry = require('react-masonry-component');
 
-import extractProperties from '../helpers/requests.js';
-import { baseUrl, masonryOptions } from '../helpers/constants.js';
-import { ImgMedia, MapMedia, PdfMedia, LinkMedia, VideoMedia, AudioMedia } from './index';
+import {
+  ImgWithTextMedia,
+  ImgMedia,
+  MapMedia,
+  PdfMedia,
+  LinkMedia,
+  VideoMedia,
+  AudioMedia
+} from './index';
 
 const MediaPanel = React.createClass({
   render: function() {
-    var mediaObjects = this.props.media.sort(function(a, b) {
-      switch(b.type) {
-        case 'story':
-          return 2;
-        case 'photo':
-          return 1;
-        case a.type:
-          return 0;
-        default:
-          return -1;
+    const typeOrder = ['photo-text', 'photo', 'video', 'article', 'audio', 'tag'];
+    const mediaObjects = this.props.media.sort(function(a, b) {
+      const aTypeIndex = typeOrder.indexOf(a.type);
+      const bTypeIndex = typeOrder.indexOf(b.type);
+      const lessThan = aTypeIndex < bTypeIndex;
+      const greaterThan = aTypeIndex > bTypeIndex;
+
+      if (a.type === 'story') {
+        console.log(a);
       }
 
-    }).map(function(mediaData, index) {
-      const props = Object.assign({ key: index, id: index }, mediaData);
-      switch(mediaData.type) {
-        case 'photo':
-          return <ImgMedia {...props} />;
-        case 'story':
-          return <ImgMedia {...props} />;
-        case 'map':
-          return <MapMedia {...props} />;
-        case 'pdf':
-          return <PdfMedia {...props} />;
-        case 'video':
-          return <VideoMedia {...props} />;
+      if (lessThan) {
+        return -1;
+      } else if (greaterThan) {
+        return 1;
+      } else {
+        return 0;
+      }
+    }).map(function(data, index) {
+      const props = Object.assign({ key: index, id: index }, data);
+      switch(data.type) {
+        // case 'photo-text':
+        //   return <ImgWithTextMedia {...props} />;
+        // case 'photo':
+        //   return <ImgMedia {...props} />;
+        // case 'video':
+        //   return <VideoMedia {...props} />;
         case 'article':
           return <LinkMedia {...props} />;
-        case 'audio':
-          return <AudioMedia {...props} />;
+            // case 'map':
+          // return <MapMedia {...props} />;
+        // case 'pdf':
+        //   return <PdfMedia {...props} />;
+        // case 'audio':
+        //   return <AudioMedia {...props} />;
         default:
           return null;
       }
     });
 
     return (
-      <Masonry className='app-media-panel' options={masonryOptions}
-        updateOnEachImageLoad={true}>
+      <div className='app-media'>
         {mediaObjects}
-      </Masonry>
+      </div>
     );
   }
 });

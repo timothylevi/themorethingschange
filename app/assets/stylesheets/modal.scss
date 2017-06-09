@@ -1,0 +1,101 @@
+.ReactModalPortal {
+  z-index: 100;
+  .ReactModal__Overlay {
+    background: darken($about-section-background-color, 0.5) !important;
+    overflow: scroll !important;
+  }
+
+  .ReactModal__Content {
+    border: 1rem solid white !important;
+    padding: 0 !important;
+    bottom: unset !important;
+    margin-bottom: 40px;
+  }
+}
+
+.modal-img-text {
+  text-align: center;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  small {
+    max-width: 75%;
+    margin: auto;
+    display: block;
+    color: #aaa;
+    font-style: italic;
+  }
+
+  img {
+    max-height: 70vh;
+  }
+
+  p {
+    text-align: justify;
+  }
+}
+
+.modal-img {
+  text-align: center;
+
+  img {
+    max-height: 70vh;
+  }
+
+  small {
+    max-width: 75%;
+    margin: auto;
+    display: block;
+    color: #aaa;
+    font-style: italic;
+  }
+}
+
+.modal-video {
+  text-align: center;
+
+  iframe, video {
+    border: none;
+    width: 100%;
+    min-height: 75vh;
+  }
+
+  small {
+    max-width: 75%;
+    margin: auto;
+    display: block;
+    color: #aaa;
+    font-style: italic;
+  }
+}
+
+.modal-article {
+  text-align: center;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  iframe {
+    pointer-events: none;
+    height: 75vh;
+    width: 100%;
+    border: none;
+  }
+
+  small {
+    max-width: 75%;
+    margin: auto;
+    display: block;
+    color: #aaa;
+    font-style: italic;
+
+    strong {
+      display: block;
+    }
+  }
+}

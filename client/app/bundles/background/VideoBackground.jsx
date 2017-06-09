@@ -36,7 +36,7 @@ const VideoBackground = React.createClass({
     let params = {
       loop: TRUE,
       autoplay: TRUE,
-    }
+    };
     if (this.props.src.includes('vimeo')) {
       params = {
         ...params,

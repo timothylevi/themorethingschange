@@ -2,23 +2,25 @@ import React from 'react';
 const Modal = require('react-modal');
 
 const typeIcons = {
-  audio: "volume-up",
-  img: "picture-o",
-  link: "link",
-  map: "map-o",
-  pdf: "file-pdf-o",
-  video: "video-camera",
-  imgCollection: "book"
+  "photo-text": "book",
+  "photo": "picture-o",
+  "video": "video-camera",
+  "article": "link",
+
+  "audio": "volume-up",
+  "map": "map-o",
+  "pdf": "file-pdf-o",
 };
 
 const typeLabels = {
-  audio: "Audio",
-  img: "Photo",
-  link: "Link",
-  map: "Map",
-  pdf: "PDF",
-  video: "Video",
-  imgCollection: "Album"
+  "photo-text": "Photo with text",
+  "photo": "Photo",
+  "video": "Video",
+  "article": "Link",
+
+  "audio": "Audio",
+  "map": "Map",
+  "pdf": "PDF",
 };
 
 const MediaWrapper = React.createClass({
@@ -38,15 +40,14 @@ const MediaWrapper = React.createClass({
     const type = this.props.type;
     const typeIcon = typeIcons[type];
     const typeLabel = typeLabels[type];
+    const wrapperClassNames = `media-item-wrapper media-item-wrapper--${type}`;
 
     return (
-      <div onClick={this.openModal}
-        id={this.props.slug}
-        className={`app-media-item-wrapper app-media-item-wrapper--${type}`}>
+      <div onClick={this.openModal} id={this.props.slug} className={wrapperClassNames}>
         {this.props.children}
 
-        <div className="app-media-type" onMouseOver={this.typeOver} onMouseOut={this.typeOut}>
-          <i className={`fa fa-${typeIcon}`}/>&nbsp;{typeLabel}
+        <div className="media-item-type">
+          <i className={`fa fa-${typeIcon}`} />
         </div>
 
         <Modal isOpen={this.state.open} onRequestClose={this.closeModal} contentLabel='content'>

@@ -117,32 +117,12 @@
     .app-section-content-item--article {
       max-width: 50%;
 
-      .article-container {
-        background-color: transparent;
-        border-radius: $border-radius;
-        color: inherit;
-        display: block;
-        padding: 1rem;
-        transition: background-color 250ms;
-
+      .media-item-wrapper--article {
         &:hover {
           background-color: lighten($news-section-background-color, 50%);
         }
-
-        .article-thumbnail {
-          float: left;
-          margin-right: 2.5%;
-          max-width: 25%;
-        }
-        .article-info {
-          margin-left: 27.5%;
-
-          .article-title {
-            font-size: 100%;
-            margin: 0;
-          }
-          .article-source { font-size: 50%; }
-          .article-description { margin: 0; }
+        .media-item-type {
+          display: none;
         }
       }
     }
