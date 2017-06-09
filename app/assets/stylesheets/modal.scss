@@ -34,7 +34,7 @@
   }
 
   p {
-    text-align: justify;
+    text-align: left;
   }
 }
 
@@ -97,5 +97,30 @@
     strong {
       display: block;
     }
+  }
+}
+
+.modal-audio {
+  text-align: center;
+
+  h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+  }
+
+  audio {
+    width: 100%;
+  }
+
+  small {
+    max-width: 75%;
+    margin: auto;
+    display: block;
+    color: #aaa;
+    font-style: italic;
+  }
+
+  p {
+    text-align: left;
   }
 }

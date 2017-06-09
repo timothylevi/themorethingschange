@@ -6,8 +6,8 @@ const typeIcons = {
   "photo": "picture-o",
   "video": "video-camera",
   "article": "link",
-
   "audio": "volume-up",
+
   "map": "map-o",
   "pdf": "file-pdf-o",
 };
@@ -17,8 +17,8 @@ const typeLabels = {
   "photo": "Photo",
   "video": "Video",
   "article": "Link",
-
   "audio": "Audio",
+
   "map": "Map",
   "pdf": "PDF",
 };

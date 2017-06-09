@@ -33,20 +33,20 @@ const MediaPanel = React.createClass({
     }).map(function(data, index) {
       const props = Object.assign({ key: index, id: index }, data);
       switch(data.type) {
-        // case 'photo-text':
-        //   return <ImgWithTextMedia {...props} />;
-        // case 'photo':
-        //   return <ImgMedia {...props} />;
-        // case 'video':
-        //   return <VideoMedia {...props} />;
+        case 'photo-text':
+          return <ImgWithTextMedia {...props} />;
+        case 'photo':
+          return <ImgMedia {...props} />;
+        case 'video':
+          return <VideoMedia {...props} />;
         case 'article':
           return <LinkMedia {...props} />;
-            // case 'map':
-          // return <MapMedia {...props} />;
+        case 'audio':
+          return <AudioMedia {...props} />;
+        // case 'map':
+        //   return <MapMedia {...props} />;
         // case 'pdf':
         //   return <PdfMedia {...props} />;
-        // case 'audio':
-        //   return <AudioMedia {...props} />;
         default:
           return null;
       }

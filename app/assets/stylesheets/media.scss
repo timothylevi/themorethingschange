@@ -46,7 +46,7 @@
   }
 
   &.media-item-wrapper--photo {
-    width: 30%;
+    width: 27%;
 
     .media-image {
       width: 100%;
@@ -56,7 +56,6 @@
 
   &.media-item-wrapper--video {
     width: 100%;
-    // width: 30%;
 
     .media-video-thumbnail {
       width: 100%;
@@ -92,7 +91,15 @@
       }
     }
   }
-  &.media-item-wrapper--audio {}
+
+  &.media-item-wrapper--audio {
+    flex-basis: 100%;
+
+    .media-icon, .media-title {
+      display: inline-block;
+      margin: 0 0.5rem;
+    }
+  }
   &.media-item-wrapper--map {}
   &.media-item-wrapper--pdf {}
   &.media-item-wrapper--tag {}
@@ -116,49 +123,3 @@
     }
   }
 }
-
-// .app-media-panel {
-//   .app-media-item-wrapper {
-//     cursor: pointer;
-//     margin: 1%;
-//     width: 100%;
-//
-//     .app-media-item {
-//       float: left;
-//       margin-right: 1rem;
-//       width: 50%;
-//     }
-//     .app-media-type {
-//       display: none;
-//     }
-//     .app-media-title {
-//       margin: 0;
-//     }
-//     .app-media-description {
-//       overflow: hidden;
-//       text-overflow: ellipsis;
-//       white-space: nowrap;
-//     }
-//   }
-//
-//   .media--image {
-//
-//   }
-//   .media--image-with-text {}
-//
-//   .app-media-item-wrapper--img {
-//     width: 30%;
-//     .app-media-item {}
-//     .app-media-title {}
-//     .app-media-description {}
-//   }
-//   .app-media-item-wrapper--map {
-//     .app-media-item {}
-//   }
-//   .app-media-item-wrapper--pdf {}
-//   .app-media-item-wrapper--video {}
-//   .app-media-item-wrapper--article {}
-//   .app-media-item-wrapper--audio {}
-// }
-//
-// // TODO: Modals
